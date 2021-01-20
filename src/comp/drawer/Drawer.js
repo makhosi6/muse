@@ -88,18 +88,18 @@ export default function TemporaryDrawer() {
           </Typography>{" "}
         </ListItem>{" "}
         <Divider />
-{
-  items.map((item) =>(
-    <ListItem button key={item.key}>
-          <ListItemIcon>
-            {" "}
-            {(item.key === "Inbox")? <InboxIcon />: <MailIcon />}
-          </ListItemIcon>{" "}
-          <ListItemText primary={item.text} />
-        </ListItem>
-  ))
-}
-
+          {
+            items.map((item) =>(
+              <ListItem button key={item.key}>
+                    <ListItemIcon>
+                      {" "}
+                      {(item.key === "Inbox")? <InboxIcon />: <MailIcon />}
+                    </ListItemIcon>{" "}
+                    <ListItemText primary={item.text} />
+                  </ListItem>
+            ))
+          }
+         <Divider />
       </List>{" "}
     </div>
   );

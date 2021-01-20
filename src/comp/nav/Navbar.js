@@ -65,10 +65,9 @@ const useStyles = makeStyles(theme => ({
 export default function Nav() {
   const classes = useStyles();
   return (
-
-    <div id="nav" style={{zIndex:"100"}} className={classes.root}>
-      <AppBar position="sticky">
+      <AppBar id="nav" style={{zIndex:"100"}} className={classes.root} position="sticky">
         <Toolbar>
+          {/* <div style={{border: "1px solid red",margin:"auto", maxWidth:"700px"}}> */}
         <IconButton aria-label="search" color="inherit">
           <Drawer p={2} />
           </IconButton>
@@ -91,9 +90,8 @@ export default function Nav() {
           <IconButton aria-label="search" color="inherit">
           <OptBtn />
           </IconButton>
+          {/* </div> */}
         </Toolbar>
       </AppBar>
-    </div>
-  
   );
 }

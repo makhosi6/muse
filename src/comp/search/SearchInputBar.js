@@ -90,6 +90,8 @@ export default function SearchInput() {
               id="free-solo-2-demo"
               disableClearable
               options={context.arr.map((o) => {
+                console.log(o);
+
                 return o.headline !== undefined ? o.headline : null;
               })}
               renderInput={(params) => (

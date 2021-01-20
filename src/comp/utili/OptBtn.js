@@ -64,12 +64,3 @@ export default function OptBtn() {
   );
 }
 
-
-
-
-/*65 6n
-Declare -> filter, reduce...
-Imperative -> forEach, forOf, then
-
-Higher-order_function -> Gives and/or takes a function. Takes a function(s) as a parameter(s) or/and returns a function. Like map() in JS
-*/
