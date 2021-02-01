@@ -11,11 +11,11 @@ export default function SimpleBreadcrumbs(prop) {
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Link color="inherit" href={prop.data.catLi} onClick={handleClick}>
-        <img style={{objectFit: 'cover'}} src={prop.data.src} width="fit-content" height="20" alt="source" />
+      <Link color="inherit" target="_blank" href={prop.data.src_url} onClick={handleClick}>
+        <img style={{objectFit: 'cover'}} src={prop.data.src_logo} width="fit-content" height="12" alt={prop.data.src_name} />
       </Link>
-       <Link  color="inherit" href={prop.data.catLink} onClick={handleClick}>
-       {prop.data.category}
+       <Link color="inherit" target="_blank" href={prop.data.catLink||prop.data.src_url} onClick={handleClick}>
+       {prop.data.tag||prop.data.category||prop.data.src_name}
       </Link>
     </Breadcrumbs>
   );

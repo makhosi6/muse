@@ -25,33 +25,28 @@ export default function Trends(props) {
   const classes = useStyles();
 
   return (
-    <Paper component="div" className={classes.root}>
-      {" "}
-      {props.data.map(data => {
+    <Paper component="section" className={`trends-section ` + classes.root}>
+      {props.data.map((data) => {
         let icon;
         let color;
 
         if (data.label === "trends") {
           icon = <WhatshotIcon />;
-          color="primary";
-
+          color = "primary";
         }
 
         return (
-          
-          <a 
-         className="trend-tag"
-         href={data.url}
-           key={data.key}>
-            <Chip variant="outlined"
-            color={color}
+          <a className="trend-tag" href={data.url} key={data.key}>
+            <Chip
+              variant="outlined"
+              color={color}
               icon={icon}
               label={data.label}
               className={classes.chip}
-            ></Chip>{" "}
+            ></Chip>
           </a>
         );
-      })}{" "}
+      })}
     </Paper>
   );
 }

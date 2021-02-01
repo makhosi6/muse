@@ -83,9 +83,9 @@ export default function SpeedDials() {
           onClose={handleClose}
           onOpen={handleOpen}
           open={open}
-          direction={direction}
+          direction="up"
         >
-          {" "}
+          
           {actions.map(action => (
             <SpeedDialAction
               key={action.name}
@@ -93,9 +93,9 @@ export default function SpeedDials() {
               tooltipTitle={action.name}
               onClick={handleClose}
             />
-          ))}{" "}
-        </SpeedDial>{" "}
-      </div>{" "}
+          ))}
+        </SpeedDial>
+      </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function MediaCard(prop) {
             cursor: "pointer",
           }}
           src={prop.src}
-        />{" "}
+        />
       </CardMedia>
     </div>
   );

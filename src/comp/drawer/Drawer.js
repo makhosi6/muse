@@ -66,14 +66,15 @@ export default function TemporaryDrawer() {
 
   const list = anchor => (
     <div
+      key={`${Math.random() * 1000}`}
       className={clsx(classes.list)}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button>
-          <Typography className={classes.title} variant="div" noWrap>
+        <ListItem  key={`${Math.random() * 1000}`} button>
+          <Typography className={classes.title} variant="inherit" noWrap>
             <Link href="/">
               <img
                 style={{ alignItems: "centre", objectFit: "contain" }}
@@ -82,42 +83,41 @@ export default function TemporaryDrawer() {
                 width="100"
                 height="30"
                 sizes=""
-                srcset="//raw.githubusercontent.com/makhosi6/my_projects_links/master/blue_logo.svg"
+                srcSet="//raw.githubusercontent.com/makhosi6/my_projects_links/master/blue_logo.svg"
               />
-            </Link>{" "}
-          </Typography>{" "}
-        </ListItem>{" "}
+            </Link>
+          </Typography>
+        </ListItem>
         <Divider />
           {
             items.map((item) =>(
-              <ListItem button key={item.key}>
+              <ListItem button key={`${Math.random() * 1000}${item.key}`}>
                     <ListItemIcon>
-                      {" "}
                       {(item.key === "Inbox")? <InboxIcon />: <MailIcon />}
-                    </ListItemIcon>{" "}
+                    </ListItemIcon>
                     <ListItemText primary={item.text} />
                   </ListItem>
             ))
           }
          <Divider />
-      </List>{" "}
+      </List>
     </div>
   );
 
   return (
     <div>
       <React.Fragment key="left">
-        <MenuIcon onClick={toggleDrawer("left", true)} />{" "}
+        <MenuIcon onClick={toggleDrawer("left", true)} />
         <Drawer
           component="div"
           anchor="left"
           open={state["left"]}
           onClose={toggleDrawer("left", false)}
         >
-          {" "}
-          {list("left")}{" "}
-        </Drawer>{" "}
-      </React.Fragment>{" "}
+          
+          {list("left")}
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }

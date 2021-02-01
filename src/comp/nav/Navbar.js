@@ -71,7 +71,7 @@ export default function Nav() {
         <IconButton aria-label="search" color="inherit">
           <Drawer p={2} />
           </IconButton>
-          <Typography className={classes.title} variant="div" noWrap>
+          <Typography className={classes.title} variant="inherit" noWrap>
             <Link href="/">
               <img
                 style={{ alignItems: "centre"}}
@@ -80,7 +80,7 @@ export default function Nav() {
                 width="100"
                 height="30"
                 sizes=""
-                srcset="//raw.githubusercontent.com/makhosi6/my_projects_links/master/white_logo.svg"
+                srcSet="//raw.githubusercontent.com/makhosi6/my_projects_links/master/white_logo.svg"
               />
             </Link>
           </Typography>

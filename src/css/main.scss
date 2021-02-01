@@ -34,7 +34,9 @@ img {
     line-height: 1.4em !important;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, sans-serif !important;
 }
-
+[role="button"]:hover, [role="menuitem"]:hover, #imgWrapper> div{
+    background-color: aliceblue !important;
+  }
 [type="button"],
 div {
     border-radius: 0px !important;

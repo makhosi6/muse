@@ -50,19 +50,28 @@ export default function Slides(prop) {
                 style={{ margin: "auto", color: "white",  width: "100%"}}
               >
                 {prop.data.map(item => (
+               
                   <div key={`${Math.random() * 1000}`}>
-                    <Breadcrumbs aria-label="breadcrumb">
+                    <Breadcrumbs style={{color: "whitesmoke"}} aria-label="breadcrumb">
                       <Link
+                      target="_blank"
                         color="inherit"
-                        href={item.url_src}
+                        href={item.src_url}
                       >
                         <img
                           style={{ objectFit: "cover" }}
-                          src={item.src}
+                          src={item.src_logo}
                           width="fit-content"
-                          height="20"
-                          alt="source"
+                          height="12"
+                          alt={item.src_name}
                         />
+                      </Link>
+                      <Link 
+                       target="_blank"
+                        color="inherit"
+                        href={item.catLink}
+                      >
+                       {item.tag||item.category}
                       </Link>
                     </Breadcrumbs>
                     <Typography  variant="subtitle1" gutterBottom>
@@ -70,8 +79,7 @@ export default function Slides(prop) {
                         fontWeight="fontWeightBold"
                         lineHeight="normal"
                         m={1} >
-                        <Link style={{color: "white"}}  href={item.url}>
-                          {" "}
+                        <Link style={{color: "white"}} target="_blank" href={item.url}>
                           {item.headline}
                         </Link>
                       </Box>
@@ -79,9 +87,9 @@ export default function Slides(prop) {
                   </div>
                 ))}
               </Carousel>
-            </Grid>{" "}
-          </Grid>{" "}
-        </Paper>{" "}
+            </Grid>
+          </Grid>
+        </Paper>
       </div>
     </Card>
   );

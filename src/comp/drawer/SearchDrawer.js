@@ -21,16 +21,15 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <React.Fragment key="top">
-        <SearchIcon onClick={toggleDrawer("top", true)} />{" "}
+        <SearchIcon onClick={toggleDrawer("top", true)} />
         <Drawer
           anchor="top"
           open={state["top"]}
           onClose={toggleDrawer("top", false)}
         >
-          {" "}
-          <SearchAppBar />{" "}
-        </Drawer>{" "}
-      </React.Fragment>{" "}
+          <SearchAppBar changes={toggleDrawer}/>
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }

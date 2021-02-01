@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchInput() {
+export default function SearchInput(props) {
   const classes = useStyles();
 
   return (
@@ -89,13 +89,10 @@ export default function SearchInput() {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={context.arr.map((o) => {
-                console.log(o);
-
-                return o.headline !== undefined ? o.headline : null;
-              })}
+              options={context.arr.map((x) => null|| x.headline||x[0].headline)}
               renderInput={(params) => (
                 <TextField
+                  
                   onSelect={(event) => {
                     if (event.target.value !== "") {
                       const obj = context.arr.filter(
@@ -103,6 +100,8 @@ export default function SearchInput() {
                       );
                       if (obj[0] !== undefined) {
                         window.location = `${obj[0].url}`;
+                      //   window.open(`${obj[0].url}`);
+                      //  props.changes("top", false)
                       }
                     }
                   }}

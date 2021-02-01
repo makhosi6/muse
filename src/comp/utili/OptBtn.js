@@ -47,17 +47,19 @@ export default function OptBtn() {
         <MenuItem onClick={handleClose}>Report a bug</MenuItem>
         <MenuItem onClick={handleClickOpen('paper')}>About this App</MenuItem>
         <Dialog
-       handleClose={handleClose}
-        scroll={scroll}
-        open={open}
-        descriptionElementRef={descriptionElementRef}
+          title="About"
+          handleClose={handleClose}
+          scroll={scroll}
+          open={open}
+          descriptionElementRef={descriptionElementRef}
         />
         <MenuItem onClick={handleClickOpen('paper')}>Legal</MenuItem>
         <Dialog
-       handleClose={handleClose}
-        scroll={scroll}
-        open={open}
-        descriptionElementRef={descriptionElementRef}
+          title="Legal"
+          handleClose={handleClose}
+          scroll={scroll}
+          open={open}
+          descriptionElementRef={descriptionElementRef}
         />
       </Menu>
     </div>

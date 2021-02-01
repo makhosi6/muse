@@ -6,7 +6,7 @@ class Cat extends Component {
   render() {
     return (
       <MyContext.Consumer>
-        {context => <p> inside consumer sty: {context.name} </p>}
+        {context => <p> </p>}
       </MyContext.Consumer>
     );
   }

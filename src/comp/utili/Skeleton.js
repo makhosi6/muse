@@ -48,7 +48,7 @@ export default function Animations() {
             style={{ backgroundColor: "#3e323254" }}
             animation="wave"
             height={30}
-          />{" "}
+          />
           <Skeleton
             variant="text"
             style={{ backgroundColor: "#3e323254" }}
@@ -70,8 +70,8 @@ export default function Animations() {
             width={70}
             animation="wave"
           />
-        </div>{" "}
-      </div>{" "}
+        </div>
+      </div>
       <Skeleton    
         className={classes.hid}
         style={{ backgroundColor: "#3e323254" }}
@@ -79,7 +79,7 @@ export default function Animations() {
         animation="wave"
         width={210}
         height={170}
-      />{" "}
+      />
     </Card>
   );
 }

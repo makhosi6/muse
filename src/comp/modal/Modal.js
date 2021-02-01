@@ -15,14 +15,16 @@ export default function Modal(prop) {
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
       >
-        <DialogTitle id="scroll-dialog-title">Title</DialogTitle>
+        <DialogTitle id="scroll-dialog-title">
+          {prop.title}
+        </DialogTitle>
         <DialogContent dividers={prop.scroll === "paper"}>
           <DialogContentText
             id="scroll-dialog-description"
             ref={prop.descriptionElementRef}
             tabIndex={-1}
           >
-            {[...new Array(50)]
+            {[...new Array(24)]
               .map(
                 () => `Cras mattis consectetur purus sit amet fermentum.
                 Cras justo odio, dapibus ac facilisis in, egestas eget quam.
@@ -35,9 +37,6 @@ export default function Modal(prop) {
         <DialogActions>
           <Button onClick={prop.handleClose} color="primary">
             Cancel
-          </Button>
-          <Button onClick={prop.handleClose} color="primary">
-            Okay
           </Button>
         </DialogActions>
       </Dialog>

@@ -6,6 +6,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import CookieBar from "../comp/utili/CookiesBar";
 import Presentation from "../comp/presentation/Presentation";
+import Header from "../comp/article/Header";
+import Loader from "../comp/utili/Loader";
+import SpeedDials from "../comp/speeddial/SpeedDial";
 
 const useStyles = makeStyles(theme => ({
   head: {
@@ -28,20 +31,24 @@ export default function ContainerBlock() {
   return (
     <MyContext.Consumer>
       {context => (
-        <main>
+        <>
           <CssBaseline />
-          <Container
+          <Container component="main"
             className={classes.cont}
           >
             <Trends data={context.trends} />
-            <div>
+            <Header/>
+            <section className="pages-section">
+              {/* map of presentation element using data pages in a arrays/objects */}
               <Presentation
+                key={`${Math.random() * 1000}`}
                 data={context.arr.sort(() => Math.random() - 0.5)}
               />
+              <Loader/>
+            </section>
             <CookieBar />
-            </div>{" "}
-          </Container>{" "}
-        </main>
+          </Container>
+          </>
       )}
     </MyContext.Consumer>
   );
