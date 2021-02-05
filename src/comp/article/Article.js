@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     borderRightColor: "#bfbbbb",
   },
   "empty-txt": {
-    border:"1px solid red",
+    border:"1px solid white",
     [theme.breakpoints.down("sm")]: {
       display: "none",
     }

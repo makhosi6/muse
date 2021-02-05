@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/main.css";
 import Home from "../src/pages/Home";
-import Style from "../src/pages/Style";
+// import Style from "../src/pages/Style";
 import Error from "../src/pages/Error";
 import Navbar from "./comp/nav/Navbar";
 import { Switch, Route } from "react-router-dom";
@@ -37,9 +37,9 @@ render() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route exact path="/:slug" component={Style} /> */}
         <Route exact path="/contact" component={Contact} />
         <Route path="/:slug" component={Error} />
+        {/* <Route path="/:slug/:name" component={Style} /> */}
       </Switch>
     </>
   );

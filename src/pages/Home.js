@@ -8,7 +8,6 @@ import CookieBar from "../comp/utili/CookiesBar";
 import Presentation from "../comp/presentation/Presentation";
 import Header from "../comp/article/Header";
 import Loader from "../comp/utili/Loader";
-import SpeedDials from "../comp/speeddial/SpeedDial";
 
 const useStyles = makeStyles(theme => ({
   head: {
@@ -32,6 +31,7 @@ export default function ContainerBlock() {
     <MyContext.Consumer>
       {context => (
         <>
+        
           <CssBaseline />
           <Container component="main"
             className={classes.cont}
@@ -44,7 +44,7 @@ export default function ContainerBlock() {
                 key={`${Math.random() * 1000}`}
                 data={context.arr.sort(() => Math.random() - 0.5)}
               />
-              <Loader/>
+              <Loader flip={context.flip}/>
             </section>
             <CookieBar />
           </Container>

@@ -4,7 +4,6 @@ import Link from '@material-ui/core/Link';
 
 function handleClick(event) {
  
-  console.info('You clicked a breadcrumb.');
 }
 
 export default function SimpleBreadcrumbs(prop) {

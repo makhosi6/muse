@@ -1,4 +1,3 @@
-import { DriveEtaOutlined } from "@material-ui/icons";
 import React, { Component } from "react";
 import Article from "../article/Article";
 import Slide from "../article/Slides";

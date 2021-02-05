@@ -3,8 +3,10 @@ import React, { Component } from "react";
 const MyContext = React.createContext();
 
 export default class MyProvider extends Component {
-  state = {
-    current_page: 1,
+  constructor(props) {
+    super(props)
+    this.state = {
+    flip: this.flip,
     trends: [
       { key: 0, label: "trends", url: "" }
       //everything will be pushed, thus the "trend" obj will be the only permanent item of the arr
@@ -13,14 +15,15 @@ export default class MyProvider extends Component {
     articles: {
       pages: [[], []],
     },
-  };
-  flip(){
-      
-  }
-
+  }};
+  
+  flip = (page=1) => {
+    this.setState({page})
+    console.log(this,{page});
+}
   render() {
     return (
-      <MyContext.Provider flip={this.flip} value={this.state}>
+      <MyContext.Provider value={this.state}>
         {this.props.children}
       </MyContext.Provider>
     );
