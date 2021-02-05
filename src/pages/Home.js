@@ -1,5 +1,5 @@
 import React from "react";
-import { MyContext } from "../context";
+import { MyContext } from "../contextX";
 import Trends from "../comp/trends/Trends";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
