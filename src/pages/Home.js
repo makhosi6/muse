@@ -1,5 +1,5 @@
 import React from "react";
-import { MyContext } from "../contextX";
+import { MyContext } from "../context";
 import Trends from "../comp/trends/Trends";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,50 +9,52 @@ import Presentation from "../comp/presentation/Presentation";
 import Header from "../comp/article/Header";
 import Loader from "../comp/utili/Loader";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   head: {
     padding: theme.spacing(2),
     margin: "auto",
     maxWidth: 700,
     textTransform: "capitalize",
-    textDecoration: "underline"
+    textDecoration: "underline",
   },
   cont: {
     margin: "auto",
     maxWidth: 700,
-    height: "100%"
-  }
+    height: "100%",
+  },
 }));
 
 export default function ContainerBlock() {
   const classes = useStyles();
- 
+
   return (
     <MyContext.Consumer>
-      {context => (
+      {(context) => (
         <>
-        
           <CssBaseline />
-          <Container component="main"
-            className={classes.cont}
-          >
-            <Trends data={context.trends} />
-            <Header/>
-            <section className="pages-section">
-              {/* map of presentation element using data pages in a arrays/objects */}
-              <Presentation
-                key={`${Math.random() * 1000}`}
-                data={context.arr.sort(() => Math.random() - 0.5)}
-              />
-              <Loader flip={context.flip}/>
-            </section>
-            <CookieBar />
+          <Container component="main" className={classes.cont}>
+            {context.articles.pages[0] === undefined ? (
+              <Loader value={10} flip={({ x }) => console.log({ x })} />
+            ) : (
+              <>
+                <Trends data={context.trends} />
+                <Header />
+                <section className="pages-section">
+                  {/* map of presentation element using data pages in a arrays/objects */}
+                  {context.articles.pages.map((arr) => (
+                    <Presentation
+                      key={`${Math.random() * 1000}`}
+                      data={arr.sort(() => Math.random() - 0.5)}
+                    />
+                  ))}
+                  <Loader value={100} flip={context.flip} />
+                </section>
+                <CookieBar />
+              </>
+            )}
           </Container>
-          </>
+        </>
       )}
     </MyContext.Consumer>
   );
 }
-
-
-
