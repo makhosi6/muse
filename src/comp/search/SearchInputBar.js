@@ -2,7 +2,7 @@ import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { MyContext } from "../../contextX";
+import { MyContext } from "../../context";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -89,13 +89,12 @@ export default function SearchInput(props) {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={context.arr.map((x) => null|| x.headline||x[0].headline)}
+              options={context.all.map((x) => null|| x.headline||x[0].headline)}
               renderInput={(params) => (
                 <TextField
-                  
                   onSelect={(event) => {
                     if (event.target.value !== "") {
-                      const obj = context.arr.filter(
+                      const obj = context.all.filter(
                         (opt) => opt.headline === event.target.value
                       );
                       if (obj[0] !== undefined) {

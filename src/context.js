@@ -11,6 +11,7 @@ export default class MyProvider extends Component {
         //everything will be pushed, thus the "trend" obj will be the only permanent item of the arr
         //PUPPETS WILL LOAD DATA TO THE DATAbase
       ],
+      all:{},
       articles: {
         pages: []
       },
@@ -41,7 +42,8 @@ export default class MyProvider extends Component {
     // fetch trends
     console.log("DID MOUNT");
       let articles = {...this.state.articles}
-    fetch(`${process.env.REACT_APP_API}`, {
+      let all = {...this.state.all}
+    fetch(`${process.env.REACT_APP_API}/articles`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
       },
@@ -52,7 +54,18 @@ export default class MyProvider extends Component {
       .then(()=>this.setState({articles}))
       .then((e) => console.error("DONE UPDATING"))
       .catch((e) => console.error(e));
-      
+      //
+      fetch(`${process.env.REACT_APP_API}/filter/all`, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((x) => all.push(x.data))
+        .then((e) => console.error("DONE FETCHING all"))
+        .then(()=>this.setState({all}))
+        .then((e) => console.error("DONE UPDATING all"))
+        .catch((e) => console.error(e));
   }
   componentDidUpdate() {
     console.log("DID UPDATE");
