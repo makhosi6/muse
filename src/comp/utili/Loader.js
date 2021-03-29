@@ -40,6 +40,7 @@ export default function Loader(props) {
   );
 }
 const root = {
+  marginTop: '10px',
   maxWidth: 700,
   display: "flex",
   justifyContent: "center",

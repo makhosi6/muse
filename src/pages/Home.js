@@ -44,8 +44,7 @@ export default function ContainerBlock() {
                   {context.articles.pages.map((arr) => (
                     <Presentation
                       key={`${Math.random() * 1000}`}
-                      // data={arr.sort(() => Math.random() - 0.5)}
-                      data={arr}
+                      data={arr.sort(() => Math.random() - 0.5)}
                     />
                   ))}
                   <Loader value={100} flip={context.flip} />

@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 export default function Slides(prop) {
+  console.warn(prop.data);
   const classes = useStyles();
   return (
     <Card id="head" className={classes.root}>
@@ -49,8 +50,10 @@ export default function Slides(prop) {
                 className={classes.centre}
                 style={{ margin: "auto", color: "white",  width: "100%"}}
               >
-                {prop.data.map(item => (
-               
+                { prop.data.map(item => {  
+                  
+                  console.error("FROM <Slide/>", item);
+                  return (item)? (
                   <div key={`${Math.random() * 1000}`}>
                     <Breadcrumbs style={{color: "whitesmoke"}} aria-label="breadcrumb">
                       <Link
@@ -85,7 +88,11 @@ export default function Slides(prop) {
                       </Box>
                     </Typography>
                   </div>
-                ))}
+                )
+                : 
+                
+                ("NOTHING, Item is not Available")
+              })}
               </Carousel>
             </Grid>
           </Grid>
