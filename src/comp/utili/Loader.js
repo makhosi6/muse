@@ -10,7 +10,6 @@ export default function Loader(props) {
   window.onscroll = function (ev) {
     const vh = window.innerHeight;
     const top = () => el.current.getBoundingClientRect().top;
-    
     if (vh >= top()) {
       console.info(
         vh >= top(),
@@ -28,6 +27,7 @@ export default function Loader(props) {
   };}
   return (
     <>
+    <span style={{ lineHeight: "0 !important" }} ref={el}></span>
       <Paper
         component="div"
         className="loader"
@@ -35,7 +35,6 @@ export default function Loader(props) {
       >
         <CircularProgress disableShrink />
       </Paper>
-      <span style={{ lineHeight: "0 !important" }} ref={el}></span>
     </>
   );
 }

@@ -12,6 +12,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "@material-ui/core";
+import { ArrowDownwardOutlined , ViewArray} from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
   list: {
@@ -93,7 +94,7 @@ export default function TemporaryDrawer() {
             items.map((item) =>(
               <ListItem button key={`${Math.random() * 1000}${item.key}`}>
                     <ListItemIcon>
-                      {(item.key === "Inbox")? <InboxIcon />: <MailIcon />}
+                     <ViewArray/>
                     </ListItemIcon>
                     <ListItemText primary={item.text} />
                   </ListItem>

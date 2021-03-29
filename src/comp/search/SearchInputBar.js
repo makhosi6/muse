@@ -89,7 +89,7 @@ export default function SearchInput(props) {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={context.search.map((x) => null|| x.headline||x[0].headline)}
+              options={context.search.sort(() => Math.random() - 0.5).map((x) => null|| x.headline||x[0].headline)}
               renderInput={(params) => (
                 <TextField
                   onSelect={(event) => {

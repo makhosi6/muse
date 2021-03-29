@@ -25,7 +25,7 @@ export default class MyProvider extends Component {
     let articles = {...this.state.articles}
     sessionStorage.setItem("page", `${page}`);
     //
-    fetch(`http://localhost:8000/graphql?query={%20articles(first:%2020,%20page:%20${page})%20{%20paginatorInfo%20{%20lastPage%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`)
+    fetch(`${process.env.REACT_APP_API}graphql?query={%20articles(first:%2020,%20page:%20${page})%20{%20paginatorInfo%20{%20lastPage%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`)
       .then((response) => response.json())
       .then((x)=> console.log(x.data))
       .then((x) => articles.pages.push(x.data))

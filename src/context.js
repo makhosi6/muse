@@ -1,3 +1,4 @@
+import { Info } from "@material-ui/icons";
 import React, { Component } from "react";
 const MyContext = React.createContext();
 
@@ -14,7 +15,7 @@ export default class MyProvider extends Component {
       ],
     lee: "loading",
       articles: {
-        pages:[],
+        pages:[[arr]],
       },
     };
 
@@ -22,7 +23,8 @@ export default class MyProvider extends Component {
   }
 
   flip = (page = 1) => {
-    console.log('flipped');
+    console.info(`page loading...`)
+
   };
 
   set = (item, link = "", page = 1) => {
@@ -42,36 +44,44 @@ export default class MyProvider extends Component {
         }
         if (item === "articles") {
           let articles = { ...this.state.articles };
-          fetch(`http://localhost:8000/graphql?query={%20filtered(first:6%20page:1%20type:%22card%22)%20{%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20key%20label%20subject%20format%20about%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`)
+          fetch(`${process.env.REACT_APP_API}graphql?query={%20filtered(first:6%20page:${page}%20type:%22card%22)%20{%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20key%20label%20subject%20format%20about%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`)
             .then((res) => res.json())
             .then((y) => {
-              (y.data.filtered.data == false)? console.warn("Cant get more slides") : articles.pages.push([y.data.filtered.data]);
-              
+              // console.log({y});
+              (y.data.filtered.data == false)? console.warn("Cant get more slides") : x.data.filtered.data.push([y.data.filtered.data]);
+              this.setState({"more": x.data.filtered.paginatorInfo.hasMorePages})
+              this.setState({"_": {
+                lastPage:x.data.filtered.paginatorInfo.lastPage,
+                currentPage: x.data.filtered.paginatorInfo.currentPage
+              }})
             });
+         
           articles.pages.push(x.data.filtered.data);
           this.setState({ articles, page });
         }
+        
       })
       .then(()=>this.setState({'lee': 'loaded'}));
+      
   };
   async componentDidMount() {
     console.log("DID MOUNT");
     this.set(
       "search",
-      "http://localhost:8000/graphql?query={%20articles(first:%20200,%20page:%201)%20{%20data%20{%20id%20url%20headline%20}%20}%20}"
+      `${process.env.REACT_APP_API}graphql?query={%20articles(first:%20200,%20page:%201)%20{%20data%20{%20id%20url%20headline%20}%20}%20}`
     );
     this.set(
       "trends",
-      "http://localhost:8000/graphql?query={%20filtered(first:10%20page:1%20type:%22hot-trends%22){%20paginatorInfo{%20count%20currentPage%20lastPage%20total%20}%20data{%20id%20label%20url%20headline%20}%20}%20}"
+      `${process.env.REACT_APP_API}graphql?query={%20filtered(first:10%20page:1%20type:%22hot-trends%22){%20paginatorInfo{%20count%20currentPage%20lastPage%20total%20}%20data{%20id%20label%20url%20headline%20}%20}%20}`
     );
     this.set(
       "articles",
-      "http://localhost:8000/graphql?query={%20filtered(first:7%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}"
+      `${process.env.REACT_APP_API}graphql?query={%20filtered(first:40%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`
     );
   }
   componentDidUpdate() {
     console.log("DID UPDATE");
-    console.log(this.state.articles);
+    // console.log(this.state.articles);
   }
   render() {
     return (
@@ -86,29 +96,118 @@ const MyConsumer = MyContext.Consumer;
 export { MyProvider, MyConsumer, MyContext };
 
 
-let obj = [{
-  "id": "g1iotzv3t3y16g81flirpilys",
-  "url": "https://ewn.co.za/2021/03/26/the-law-must-simply-take-its-course-when-dealing-with-zuma-say-analysts",
-  "headline": "THE LAW MUST SIMPLY TAKE ITS COURSE WHEN DEALING WITH ZUMA, SAY ANALYSTS",
-  "lede": "null",
-  "thumbnail": "https://static.euronews.com/articles/stories/05/29/37/30/320x180_cmsv2_9909e89b-09bc-567b-999a-7b1404fac44c-5293730.jpg?1610803925",
-  "category": "null",
-  "catLink": null,
-  "images": "null",
-  "key": "null",
-  "label": "null",
-  "subject": "null",
-  "format": "null",
-  "about": "null",
-  "src_name": "Africanews",
-  "src_url": "https://ewn.co.za/",
-  "src_logo": "https://ewn.co.za/wp-content/uploads/2018/04/Africanews-logo.png",
-  "isVid": true,
-  "vidLen": "03:10",
-  "type": "strip",
-  "tag": null,
-  "tags": null,
-  "author": "null",
-  "authors": "null",
-  "date": "16/01 - 17:58"
-}];
+let arr = 
+  [
+    {
+      "id": "1s2aqfzd388g0rd91q6joujqdvvujaas",
+      "url": "https://news.cgtn.com/news/2021-01-18/-Days-and-Nights-in-Wuhan-documents-ordinary-people-s-COVID-19-battle-X94xngLN9C/index.html",
+      "headline": "'Days and Nights in Wuhan' documents ordinary people's COVID-19 battle",
+      "lede": null,
+      "thumbnail": null,
+      "category": "Movie/TV",
+      "catLink": null,
+      "images": null,
+      "key": null,
+      "label": null,
+      "subject": null,
+      "format": null,
+      "about": null,
+      "src_name": "CGTN",
+      "src_url": "https://www.cgtn.com",
+      "src_logo": "https://ui.cgtn.com/static/ng/resource/images/icon/logo@3x.png",
+      "isVid": true,
+      "vidLen": "6:29",
+      "type": "title-only",
+      "tag": "Movie/TV",
+      "tags": null,
+      "author": null,
+      "authors": null,
+      "date": "12:15, 18-Jan-2021",
+      "created_at": "2021-01-18T09:21:40.000000Z",
+      "updated_at": "2021-01-18T09:21:40.000000Z"
+  },
+  {
+      "id": "rnf2jfxt5eoftxjvx922fsvv4cvgr9i5",
+      "url": "https://news.cgtn.com/news/2021-01-18/-Elves-of-the-Yangtze-River-show-up-in-central-China-X96xcACSLS/index.html",
+      "headline": "'Elves of the Yangtze River' show up in central China",
+      "lede": null,
+      "thumbnail": "https://ui.cgtn.com/static/ng/resource/images/icon/zwt-bg.png",
+      "category": "Animal",
+      "catLink": null,
+      "images": null,
+      "key": null,
+      "label": null,
+      "subject": null,
+      "format": null,
+      "about": null,
+      "src_name": "CGTN",
+      "src_url": "https://www.cgtn.com",
+      "src_logo": "https://ui.cgtn.com/static/ng/resource/images/icon/logo@3x.png",
+      "isVid": true,
+      "vidLen": "6:29",
+      "type": "title-only",
+      "tag": "Animal",
+      "tags": null,
+      "author": null,
+      "authors": null,
+      "date": "13:11, 18-Jan-2021",
+      "created_at": "2021-01-18T09:22:01.000000Z",
+      "updated_at": "2021-01-18T09:22:01.000000Z"
+  },
+  {
+      "id": "p3lcleiza9kk3vemmhokeou8l9xh1fq4",
+      "url": "https://www.bbc.com/news/business-55636774",
+      "headline": "'I couldn't build a company on my own'",
+      "lede": null,
+      "thumbnail": "https://ichef.bbci.co.uk/news/490/cpsprodpb/53D2/production/_116485412_p093sm9b.jpg",
+      "category": null,
+      "catLink": null,
+      "images": null,
+      "key": null,
+      "label": null,
+      "subject": null,
+      "format": null,
+      "about": null,
+      "src_name": "BBC",
+      "src_url": "https://www.bbc.com",
+      "src_logo": "https://nav.files.bbci.co.uk/orbit/db9d3ece642dbb01f23f791064ec1502/img/blq-orbit-blocks_grey_alpha.png",
+      "isVid": true,
+      "vidLen": "1:19",
+      "type": "card",
+      "tag": null,
+      "tags": null,
+      "author": null,
+      "authors": null,
+      "date": null,
+      "created_at": "2021-01-18T10:09:30.000000Z",
+      "updated_at": "2021-01-18T10:09:30.000000Z"
+  },
+  {
+      "id": "l8xndmg9nbiqyaunzeue5zu0t5p4g5mr",
+      "url": "https://www.bbc.com/news/business-55638969",
+      "headline": "'Putting UK, not GB, delayed my fish for 24 hours'",
+      "lede": "New trading rules are causing problems for some firms, creating backlogs and uncertainty.",
+      "thumbnail": "https://ichef.bbci.co.uk/news/490/cpsprodpb/0DDF/production/_116515530_2972d877-3cb0-428a-be41-53425c776870.jpg",
+      "category": "Business",
+      "catLink": null,
+      "images": null,
+      "key": null,
+      "label": null,
+      "subject": null,
+      "format": null,
+      "about": null,
+      "src_name": "BBC",
+      "src_url": "https://www.bbc.com",
+      "src_logo": "https://nav.files.bbci.co.uk/orbit/db9d3ece642dbb01f23f791064ec1502/img/blq-orbit-blocks_grey_alpha.png",
+      "isVid": false,
+      "vidLen": "6:29",
+      "type": "card",
+      "tag": "Business",
+      "tags": null,
+      "author": null,
+      "authors": null,
+      "date": "9 hours ago",
+      "created_at": "2021-01-18T10:06:23.000000Z",
+      "updated_at": "2021-01-18T10:06:23.000000Z"
+  }
+  ];
