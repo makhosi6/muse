@@ -115,4 +115,8 @@ h5,
 h6 {
   color: #4f4f4f !important;
 }
+
+.caps {
+  text-transform: capitalize !important;
+}
 /*# sourceMappingURL=main.css.map */

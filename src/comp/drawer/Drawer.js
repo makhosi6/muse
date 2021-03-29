@@ -5,57 +5,63 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon"
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "@material-ui/core";
-import { ArrowDownwardOutlined , ViewArray} from "@material-ui/icons";
+import { ArrowDownwardOutlined, ViewArray } from "@material-ui/icons";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   list: {
-    width: 250
+    width: 250,
   },
   fullList: {
-    width: "auto"
+    width: "auto",
   },
   title: {
     color: "#3f51b5",
     flexGrow: 1,
     [theme.breakpoints.up("sm")]: {
-      display: "block"
-    }
-  }
+      display: "block",
+    },
+  },
 }));
 
 export default function TemporaryDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    left: false
+    left: false,
   });
- const items = [{
-   text: "Politics",
-   key: "Inbox"
- }, {
-   text: "Africa",
-   key: "Draft"
- },{
-   text: "Tech",
-   key: "Send email"
- },{
-   text: "Lifestyle",
-   key: "Drafts"
- },
- {
-   text: "Business",
-   key: "Inbox"
- },{
-   text: "Politics",
-   key: "All mail"
- }];
-  const toggleDrawer = (anchor, open) => event => {
+  const items = [
+    {
+      text: "politics",
+      key: "Inbox",
+    },
+    {
+      text: "africa",
+      key: "Draft",
+    },
+    {
+      text: "tech",
+      key: "Send email",
+    },
+    {
+      text: "lifestyle",
+      key: "Drafts",
+    },
+    {
+      text: "business",
+      key: "Inbox",
+    },
+    {
+      text: "politics",
+      key: "All mail",
+    },
+  ];
+  const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -65,7 +71,7 @@ export default function TemporaryDrawer() {
     setState({ ...state, [anchor]: open });
   };
 
-  const list = anchor => (
+  const list = (anchor) => (
     <div
       key={`${Math.random() * 1000}`}
       className={clsx(classes.list)}
@@ -74,7 +80,7 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem  key={`${Math.random() * 1000}`} button>
+        <ListItem key={`${Math.random() * 1000}`} button>
           <Typography className={classes.title} variant="inherit" noWrap>
             <Link href="/">
               <img
@@ -90,17 +96,26 @@ export default function TemporaryDrawer() {
           </Typography>
         </ListItem>
         <Divider />
-          {
-            items.map((item) =>(
-              <ListItem button key={`${Math.random() * 1000}${item.key}`}>
-                    <ListItemIcon>
-                     <ViewArray/>
+
+    
+        {items.map((item) => (
+          <>
+
+            <Link href={item.text}>
+            <ListItem button key={`${Math.random() * 1000}${item.key}`}>
+              <ListItemIcon>
+                    {/* //  <ViewArray/>
+                    //  {} */}
                     </ListItemIcon>
-                    <ListItemText primary={item.text} />
-                  </ListItem>
-            ))
-          }
-         <Divider />
+                  
+              <ListItemText className="caps" primary={item.text} />
+            
+            </ListItem>
+            <Divider />{" "}
+          </Link>
+          </>
+        ))}
+        <Divider />
       </List>
     </div>
   );
@@ -115,7 +130,6 @@ export default function TemporaryDrawer() {
           open={state["left"]}
           onClose={toggleDrawer("left", false)}
         >
-          
           {list("left")}
         </Drawer>
       </React.Fragment>
