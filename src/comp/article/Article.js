@@ -115,6 +115,7 @@ export default function Article(prop) {
                   </Grid>
                   <Grid item>
                     <Typography
+                      className="caps"
                       variant="inherit"
                       color="textSecondary"
                       style={{display: x ,fontStyle:"italic", }}
