@@ -1,4 +1,9 @@
+<p align="center">
+<a alt="thumbnail" href="#"><img src="/src/images/muse-desktop.png" ></a>
+</p>
 
+
+```[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)```
 # muse 
 ##  verb 
 
@@ -38,4 +43,3 @@ especially : a guiding genius
 The writer's beloved wife was his muse.
 ### 3: POET
 
-[Definitions extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)
