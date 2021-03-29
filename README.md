@@ -3,7 +3,7 @@
 </p>
 
 
-```[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)```
+**[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)**
 # muse 
 ##  verb 
 
