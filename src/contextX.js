@@ -40,7 +40,7 @@ export default class MyProvider extends Component {
           {
             url: "https://www.aljazeera.com/ajimpact/",
             key: `${Math.random()}`,
-            label: "Jazz Fes",
+            label: "Jazz Fest",
           },
           {
             url: "https://www.aljazeera.com/ajimpact/",

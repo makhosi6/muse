@@ -33,7 +33,7 @@ export default function ContainerBlock() {
         <>
           <CssBaseline />
           <Container component="main" className={classes.cont}>
-            {context.articles.pages[0] === undefined ? (
+            {context.lee === "loading" ? (
               <Loader value={10} flip={({ x }) => console.log({ x })} />
             ) : (
               <>
@@ -44,7 +44,8 @@ export default function ContainerBlock() {
                   {context.articles.pages.map((arr) => (
                     <Presentation
                       key={`${Math.random() * 1000}`}
-                      data={arr.sort(() => Math.random() - 0.5)}
+                      // data={arr.sort(() => Math.random() - 0.5)}
+                      data={arr}
                     />
                   ))}
                   <Loader value={100} flip={context.flip} />

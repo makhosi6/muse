@@ -89,17 +89,17 @@ export default function SearchInput(props) {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={context.all.map((x) => null|| x.headline||x[0].headline)}
+              options={context.search.map((x) => null|| x.headline||x[0].headline)}
               renderInput={(params) => (
                 <TextField
                   onSelect={(event) => {
                     if (event.target.value !== "") {
-                      const obj = context.all.filter(
+                      const obj = context.search.filter(
                         (opt) => opt.headline === event.target.value
                       );
                       if (obj[0] !== undefined) {
                         window.location = `${obj[0].url}`;
-                      //   window.open(`${obj[0].url}`);
+                        // window.open(`${obj[0].url}`);
                       //  props.changes("top", false)
                       }
                     }
