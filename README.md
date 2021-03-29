@@ -1,13 +1,11 @@
 <p align="center">
 <a alt="thumbnail" href="#"><img src="/src/images/muse-desktop.png" ></a>
 </p>
-
-
-# muse 
+<hr>
 
 Build a minimalist app that will serve as a portal for trustworthy, all-inclusive, accurate information. And also gives users a chance to contextualize, and filter the noise. 
 
-### muse 
+# muse 
 **[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)**
 ###  verb 
 
