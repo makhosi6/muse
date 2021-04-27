@@ -79,6 +79,7 @@ export default class MyProvider extends Component {
       `${process.env.REACT_APP_API}graphql?query={%20filtered(first:40%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`
     );
   }
+
   componentDidUpdate() {
     console.log("DID UPDATE");
     // console.log(this.state.articles);

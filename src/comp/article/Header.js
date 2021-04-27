@@ -20,8 +20,7 @@ export default class Header extends Component {
     }
   }}
   async forecast() {
-    const url_one = "https://geo.ngtv.io/locate";
-    const one = await fetch(url_one);
+    const one = await fetch(weatherapi);
     const location = await one.json();
     const url_two = await `http://api.weatherapi.com/v1/current.json?key=${KEY}&q=${location.states[0].cities[0]},${(location.country==='ZA'?"SOUTH AFRICA":location.country)}`;
     const two = await fetch(url_two);
@@ -90,3 +89,4 @@ const root = {
 };
 
 const KEY = process.env.REACT_APP_KEY;
+const weatherapi ='https://geo.ngtv.io/locate?appId=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybSI6IndlYiIsInByb2R1Y3QiOiJhZGZ1ZWwiLCJuZXR3b3JrIjoiY25uIiwiYXBwSWQiOiJjbm4tYWRmdWVsLXdlYi14bWQ2dTkifQ.N-lYZh_mvCV2gChDusNhd85B2BD7AiCIcNY2Gr5Rc6c';
