@@ -25,6 +25,7 @@ export default class Header extends Component {
     const url_two = await `http://api.weatherapi.com/v1/current.json?key=${KEY}&q=${location.states[0].cities[0]},${(location.country==='ZA'?"SOUTH AFRICA":location.country)}`;
     const two = await fetch(url_two);
     const weather = await two.json();
+    // console.log({weather});
     this.setState({ weather });
   }
 componentDidMount(){
