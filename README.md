@@ -3,7 +3,7 @@
 </p>
 <hr>
 
-This is (news aggregator styled,) minimalist app that will serve as a portal for trustworthy, all-inclusive, accurate information. And also gives users a chance to contextualize & muse, and filter the noise. 
+This is a (news aggregator styled,) minimalist app that will serve as a portal for trustworthy, all-inclusive, accurate information. And also gives users a chance to contextualize & muse, and filter the noise. 
 
 # muse 
 **[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)**
