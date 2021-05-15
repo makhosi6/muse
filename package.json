@@ -1,6 +1,6 @@
 {
     "name": "muse-app",
-     "homepage": "http://makhosi6.github.io/muse",
+     "homepage": "http://makhosi6.github.io/muse/",
     "version": "0.0.1",
     "private": true,
     "dependencies": {
