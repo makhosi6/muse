@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 }));
 export default function Slides(prop) {
   const classes = useStyles();
+  console.log(prop.data);
   return (
     <Card id="head" className={classes.root}>
       <div id="head" className={classes.details}>

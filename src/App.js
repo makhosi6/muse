@@ -14,7 +14,7 @@ class App extends React.Component {
   }
   componentDidCatch(error, info) {
     // Display fallback UI
-    console.log({error})
+    console.log({error});
     this.setState({ hasError: true });
     this.setState({ error: error.message });
   }
