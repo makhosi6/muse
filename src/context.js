@@ -7,13 +7,10 @@ export default class MyProvider extends Component {
     super(props);
     this.state = {
       flip: this.flip,
-
       trends: [
         { key: 0, label: "trends", url: "" },
-        //everything will be pushed, thus the "trend" obj will be the only permanent item of the arr
-        //PUPPETS WILL LOAD DATA TO THE DATAbase
       ],
-      lee: "loading",
+      lee: "jus a rndm value",
       articles: {
         pages: [arr],
       },
@@ -106,7 +103,7 @@ export default class MyProvider extends Component {
 const MyConsumer = MyContext.Consumer;
 
 export { MyProvider, MyConsumer, MyContext };
-let API = "https://muse-api-lara-nzxoc.ondigitalocean.app/"
+let API = process.env.REACT_APP_API_URL;
 let arr = [
   {
     id: "1s2aqfzd388g0rd91q6joujqdvvujaas",
