@@ -5,7 +5,7 @@
 
 This is a (news aggregator styled,) minimalist app that will serve as a portal for trustworthy, all-inclusive, accurate information. And also gives users a chance to contextualize & _**muse**_, and filter the noise. 
 
-# muse 
+# muse (v2)
 **[Definitions below  was extracted from Merriam-Webster](https://www.merriam-webster.com/dictionary/muse)**
 ###  verb 
 
