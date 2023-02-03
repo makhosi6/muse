@@ -1,0 +1,17 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: $bg_secondary;
+    * {
+        color: $primary !important;
+    }
+
+}
+
+.app-bar {
+    background-color: $bg_primary !important;
+}
+// * {
+// border: 1px solid red !important;
+// }

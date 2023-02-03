@@ -1,0 +1,91 @@
+.mobile-wrapper,
+main,
+.main {
+    max-width: 400px;
+    margin: auto;
+}
+
+.muse {
+    &-story {
+        background-color: $bg_primary;    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 16px;
+        width: inherit;
+        height: auto;
+        max-width: 400px;
+        margin: auto;
+        
+        border-bottom: 0.498042px dashed rgba(0, 0, 0, 0.38);
+        box-sizing: border-box;
+
+
+        &-container {
+
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 21px 0px 23px;
+            gap: 24px;
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+
+        &-textarea {
+            /* Text Container */
+            // display: flex;
+            // flex-direction: column;
+            // align-items: flex-start;
+            // padding: 0px;
+            gap: 5px;
+            /* Inside auto layout */
+
+            // flex: none;
+            // order: 0;
+            // flex-grow: 1;
+            width: 100%;
+        }
+
+        &-img-area {
+            /* Image Container */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            width: 74px;
+            height: 74px;
+            background-color: grey;
+            /** TO CHANGE*/
+            /* Inside auto layout */
+
+            flex: none;
+            order: 1;
+            flex-grow: 0;
+        }
+    }
+
+    &-overline-time {
+        /* Overline and Time */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 10px;
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+
+    }
+}
