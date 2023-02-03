@@ -1,5 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import TopAppBar from "./components/TopAppBar";
 import { MobileFriendly } from "@material-ui/icons";
