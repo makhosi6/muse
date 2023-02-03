@@ -6,8 +6,10 @@ main,
 }
 
 .muse {
-    &-story {
-        background-color: $bg_primary;    
+
+    &-story,
+        {
+        background-color: $bg_primary;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -16,7 +18,7 @@ main,
         height: auto;
         max-width: 400px;
         margin: auto;
-        
+
         border-bottom: 0.498042px dashed rgba(0, 0, 0, 0.38);
         box-sizing: border-box;
 
@@ -62,8 +64,7 @@ main,
             padding: 0px;
             width: 74px;
             height: 74px;
-            background-color: grey;
-            /** TO CHANGE*/
+            background-color: #edecec;
             /* Inside auto layout */
 
             flex: none;
@@ -71,6 +72,64 @@ main,
             flex-grow: 0;
         }
     }
+
+    &-chips {
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        max-width: 100%;
+        width: 100%;
+        /****/
+        overflow-x: scroll;
+        background-color: $bg_primary;
+
+    }
+
+    &-chip {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+
+
+        &-label {
+            /* Label */
+            font-family: 'Libre Franklin';
+            font-style: normal;
+            font-weight: 500;
+            line-height: 9px;
+            padding: 16px;
+
+            /* identical to box height, or 129% */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.12451px;
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+        }
+
+        &-divider {
+            /* Chip Divider */
+            height: 15px;
+            border-right: 0.498042px dashed rgba(0, 0, 0, 0.38);
+
+
+        }
+    }
+
 
     &-overline-time {
         /* Overline and Time */
@@ -87,5 +146,107 @@ main,
         align-self: stretch;
         flex-grow: 0;
 
+    }
+
+    &-big-story {
+        background-color: $bg_primary;
+        /* Story */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        width: 100%;
+
+        padding: 8.96475px 0 0 0;
+
+
+    }
+
+    &-big-img {
+        /* Image Container */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+
+
+        width: 100%;
+        height: 250px;
+
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+        background-color: #edecec;
+
+
+
+    }
+
+    &-news-heading {
+        /* Heading Container */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: $padding 0;
+        gap: 4.98px;
+        width: 100%;
+        border-bottom: 0.498042px dashed rgba(0, 0, 0, 0.38);
+
+        background-color: $bg_primary;
+
+        div {
+            padding: $padding;
+            /* Auto layout */
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 9.96084px 0px 7.96867px;
+            gap: 5.98px;
+
+            width: 100%;
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+     
+
+        &-title {
+            /* Title */
+
+
+            width: 163.36px;
+            // height: 10px;
+
+            font-family: 'Merriweather';
+            font-style: italic;
+            font-weight: 700;
+            line-height: 10px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.0747063px;
+
+            padding: $padding;
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+        }
+    }
+    &-time {
+        color: rgba(0, 0, 0, 0.6) !important;
     }
 }

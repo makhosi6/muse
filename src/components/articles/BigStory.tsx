@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react'
 
-type Props = {};
+type Props = {}
 
-export const Story = (props: Props) => {
+export const BigStory = (props: Props) => {
   return (
-    <article className="muse-story">
+    <article className='muse-big-story' >
+<div className="muse-big-img">
+
+</div>
+  <div className="muse-story">
       <div className="muse-story-container">
         <div className="muse-story-textarea">
           <div className="muse-overline-time">
@@ -15,8 +19,8 @@ export const Story = (props: Props) => {
             As Stocks Stagnate, Many Look To Currency
           </span>
         </div>
-        <div className="muse-story-img-area"></div>
       </div>
+    </div>
     </article>
-  );
-};
+  )
+}

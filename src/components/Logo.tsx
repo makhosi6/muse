@@ -1,14 +1,13 @@
-import { Link, Theme, Typography } from '@material-ui/core'
-import React from 'react'
-import logo from "./assets/images/logo.svg";
+import { Link, Theme, Typography } from "@material-ui/core";
+import React from "react";
+import logo from "../assets/images/logo.svg";
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
-const Logo = () => {  return (
+const Logo = () => {
+  return (
     <Link href="/">
       <img
-        style={{ alignItems: "centre"}}
+        style={{ alignItems: "centre" }}
         src={logo}
         alt="logo"
         width="100"
@@ -17,9 +16,7 @@ const Logo = () => {  return (
         srcSet={logo}
       />
     </Link>
-  )
-}
+  );
+};
 
 export default Logo;
-
-
