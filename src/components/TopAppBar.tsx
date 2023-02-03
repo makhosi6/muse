@@ -12,6 +12,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Logo from "./Logo";
+import NavigationBtn from "./NavigationBtn";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,8 +44,9 @@ export default function TopAppBar() {
 
   return (
     <div className={classes.root}>
+      <NavigationBtn/>
       {/* //@ts-ignore */}
-      <AppBar elevation={0} className="app-bar" position="static">
+      <AppBar elevation={0} className="app-bar" position="sticky">
         <Toolbar >
           <IconButton 
             edge="start"

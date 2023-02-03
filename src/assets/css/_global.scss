@@ -3,15 +3,144 @@ body {
     padding: 0;
     margin: 0;
     background: $bg_secondary;
+
     * {
         color: $primary !important;
     }
 
 }
 
+.muse {
+    &-nav-btn {
+        position: fixed;
+        border: 1px solid green;
+        padding: 20px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+        &-inner {
+            border: 1px solid black;
+            border-color: transparent;
+            position: absolute;
+            top: 22px;
+            width: 200px;
+            height: 200px;
+            background: darken($color: $bg_primary, $amount: 5); 
+            border-width: 1px;
+            border-style: solid;
+            transform: rotate(45deg);
+            box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%) !important;
+            
+
+            &::after {
+                height: 90px;
+                right: 30px;
+                left: auto;
+                bottom: -13px;
+                top: auto;
+            }
+
+            &::after,
+            &::before {
+                transform: rotate(45deg);
+                content: "";
+                position: absolute;
+                width: 2px;
+
+                height: 85px;
+                margin-top: -41px;
+                z-index: 1;
+                right: auto;
+                left: 27px;
+                bottom: auto;
+                top: 27px;
+
+            }
+        }
+
+        &-outter {
+
+        
+            position: fixed;
+            top: -130px;
+            left: -90px;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            z-index: 10;
+
+            &::after {
+                left: auto;
+                right: 0;
+                margin-top: -45px;
+                height: 92px;
+            }
+
+            &::after,
+            &::before {
+                background-color: $bg_primary;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 2px;
+
+                height: 86px;
+                margin-top: -41px;
+                z-index: 1;
+            }
+        
+            
+        }
+
+    }
+
+    &-more-btn {
+        /* Button */
+        background-color: $bg_primary;
+        box-sizing: border-box;
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5.9765px 7.96867px;
+        gap: 5.98px;
+        cursor: pointer;
+
+        span {
+            /* Title */
+            font-family: 'Libre Franklin';
+            font-style: normal;
+            font-weight: 700;
+            line-height: 8px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.249021px;
+
+            color: #121212;
+
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+
+            max-width: max-content;
+            margin: auto;
+        }
+    }
+
+
 .app-bar {
     background-color: $bg_primary !important;
+    padding: $padding;
 }
+
 // * {
 // border: 1px solid red !important;
 // }
@@ -19,11 +148,12 @@ body {
 /* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
     display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
 * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-  
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
