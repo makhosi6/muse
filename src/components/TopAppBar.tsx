@@ -45,7 +45,6 @@ export default function TopAppBar() {
   return (
     <div className={classes.root}>
       <NavigationBtn/>
-      {/* //@ts-ignore */}
       <AppBar elevation={0} className="app-bar" position="sticky">
         <Toolbar >
           <IconButton 

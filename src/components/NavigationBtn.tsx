@@ -1,26 +1,18 @@
 import React from "react";
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 type Props = {};
 
 const NavigationBtn = (props: Props) => {
   return (
     <>
-
-    <div className="muse-nav-btn">
-      {/* <div className="muse-nav-btn-outter">
-        <div className="muse-nav-btn-inner">
-        <MenuIcon className="menu-btn-two" />        
-
-        </div>
-      </div> */}
-      <IconButton aria-label="delete">
-  <DeleteIcon />
-</IconButton>
-    </div>
+      <div className="muse-nav-btn">
+        <IconButton aria-label="delete">
+          <MenuIcon />
+        </IconButton>
+      </div>
     </>
-
   );
 };
 
