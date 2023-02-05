@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import TopAppBar from "./components/TopAppBar";
 import { MobileFriendly } from "@material-ui/icons";
 import { MobileWrapper } from "./components/layout/MobileWrapper";
 import { Story } from "./components/articles/Story";
@@ -9,13 +8,14 @@ import { BigStory } from "./components/articles/BigStory";
 import NewsCategory from "./components/NewsCategory";
 import MoneyCharts from "./components/MoneyCharts";
 import { LoadMore } from "./components/articles/LoadMore";
+import { TopAppBar } from "./components/TopAppBar";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <TopAppBar />
+      <TopAppBar/>
       <MobileWrapper>
         <Chips />
         <BigStory />
