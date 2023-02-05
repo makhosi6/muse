@@ -47,6 +47,7 @@ Menu animation
         z-index: 3;
     }
 
+
     .cd-logo,
     .cd-nav-trigger_one {
         position: fixed;
@@ -68,8 +69,9 @@ Menu animation
     }
 
     .cd-nav-trigger_one {
-        top: 18px;
-        right: 5%;
+        top: 13px;
+        left: 56px;
+        ;
         height: 44px;
         width: 44px;
         z-index: 5;
@@ -256,6 +258,7 @@ Menu animation
         -moz-transition: visibility 0s, opacity 0.3s;
         transition: visibility 0s, opacity 0.3s;
         z-index: 10000;
+        margin: 0;
     }
 
     .cd-primary-nav li {
@@ -310,8 +313,9 @@ Menu animation
     .cd-overlay-content {
         /* containers of the 2 main rounded backgrounds - these containers are used to position the rounded bgs behind the menu icon */
         position: fixed;
-        top: 18px;
-        right: 5%;
+        top: 13px;
+        left: 56px;
+        ;
         height: 4px;
         width: 4px;
         -webkit-transform: translateX(-20px) translateY(20px);
@@ -372,7 +376,7 @@ Menu animation
     }
 
     .cd-overlay-content span {
-        background-color: #ffb441;
+        background-color: $darker;
     }
 
     .cd-content {
@@ -397,7 +401,7 @@ Menu animation
 
     .cd-content p {
         line-height: 1.5;
-        color: #a76500;
+        color: $darker;
     }
 
     @media only screen and (min-width: 768px) {
@@ -422,4 +426,16 @@ Menu animation
 
 [type="button"] {
     background-color: $bg_primary !important;
+}
+
+.cd-nav-trigger,
+.cd-overlay-nav,
+.cd-overlay-content,
+.menu-content,
+    {
+    z-index: 10000 !important;
+}
+
+.cd-primary-nav {
+    z-index: 10001 !important;
 }

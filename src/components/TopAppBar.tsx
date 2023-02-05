@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,8 +15,6 @@ import Logo from "./Logo";
 import NavigationBtn from "./NavigationBtn";
 
 const useStyles = makeStyles((theme) => {
-  console.log(theme);
-
   return {
     root: {
       flexGrow: 1,
@@ -33,42 +31,41 @@ type Props = {};
 
 export const TopAppBar = (props: Props) => {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
 
-  const handleChange = (event: any) => {};
+  const [didScroll, setDidScroll] = useState(false);
 
   const handleMenu = (event: any) => {};
-
-  const handleClose = () => {
-    setAnchorEl(null);
+  const onScrollEv = (event: any) => {
+    if (
+      document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80
+    ) {
+      setDidScroll(true);
+    } else {
+      setDidScroll(false);
+    }
   };
+  //   useEffect(() => {
+  //  console.log("Change " + didScroll);
+
+  //   }, [didScroll])
+
+  useEffect(() => {
+    //on effect
+    window.addEventListener("scroll", onScrollEv);
+    return () => {
+      // on tear off
+      window.removeEventListener("scroll", onScrollEv);
+    };
+  }, []);
 
   return (
     <div className="nav-menu">
       <div className={classes.root}>
-        <nav>
-          <ul className="cd-primary-nav">
-            <li>
-              <a href="#0">The team</a>
-            </li>
-            <li>
-              <a href="#0">Our services</a>
-            </li>
-            <li>
-              <a href="#0">Our projects</a>
-            </li>
-            <li>
-              <a href="#0">Start a project</a>
-            </li>
-            <li>
-              <a href="#0">Join In</a>
-            </li>
-            <li>
-              <a href="#0">Create an account</a>
-            </li>
-          </ul>
+        <nav className="menu-content" >
+          <div className="cd-primary-nav">
+           <div className="children"></div>
+          </div>
         </nav>
 
         {/* <main className="cd-content"></main> */}
@@ -79,8 +76,13 @@ export const TopAppBar = (props: Props) => {
           <span></span>
         </div>
 
-        <NavigationBtn />
-        <AppBar elevation={0} className="app-bar" position="sticky">
+        <NavigationBtn clasName={`${!didScroll ? "unshow" : ""}`} />
+
+        <AppBar
+          elevation={0}
+          className={`app-bar ${didScroll ? "unshow" : ""}`}
+          position="sticky"
+        >
           <Toolbar>
             <a href="#"></a>
             <IconButton

@@ -15,6 +15,10 @@ body {
     outline-color: $primary !important;
 }
 
+.unshow {
+    display: none !important;
+}
+
 .muse {
     &-nav-btn {
         position: fixed;
@@ -23,11 +27,12 @@ body {
         top: -8px;
         left: -5px;
         height: 40px;
+
         button {
             background-color: $bg_primary;
             border: 1px solid lightgrey;
         }
-      }
+    }
 
     &-more-btn {
         /* Button */

@@ -2,12 +2,14 @@ import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
-type Props = {};
+type NavProps = {
+  clasName:  string
+};
 
-const NavigationBtn = (props: Props) => {
+const NavigationBtn = (props: NavProps) => {
   return (
     <>
-      <div className="muse-nav-btn">
+      <div className={`muse-nav-btn ${props.clasName}`}>
         <IconButton aria-label="delete">
           <MenuIcon />
         </IconButton>
