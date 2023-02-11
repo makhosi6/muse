@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState, useEffect } from "react";
+import React, { ChangeEventHandler, useState, useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,6 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Logo from "./Logo";
 import NavigationBtn from "./NavigationBtn";
+import NavMenu from "./NavMenu";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -32,9 +33,21 @@ type Props = {};
 export const TopAppBar = (props: Props) => {
   const classes = useStyles();
 
+  const button = useRef(null);
+
   const [didScroll, setDidScroll] = useState(false);
 
-  const handleMenu = (event: any) => {};
+  const openMenu = (event: any) => {
+    if (button.current)
+      //@ts-ignore
+      button.current?.click();
+  };
+  const closeMenu = (event: any) => {
+    if (button.current)
+      //@ts-ignore
+      button.current?.click();
+  };
+  const handleSearch = (event: any) => {};
   const onScrollEv = (event: any) => {
     if (
       document.body.scrollTop > 80 ||
@@ -45,10 +58,6 @@ export const TopAppBar = (props: Props) => {
       setDidScroll(false);
     }
   };
-  //   useEffect(() => {
-  //  console.log("Change " + didScroll);
-
-  //   }, [didScroll])
 
   useEffect(() => {
     //on effect
@@ -62,12 +71,7 @@ export const TopAppBar = (props: Props) => {
   return (
     <div className="nav-menu">
       <div className={classes.root}>
-        <nav className="menu-content" >
-          <div className="cd-primary-nav">
-           <div className="children"></div>
-          </div>
-        </nav>
-
+        <NavMenu closeMenu={closeMenu} />
         {/* <main className="cd-content"></main> */}
         <div className="cd-overlay-nav">
           <span></span>
@@ -76,7 +80,10 @@ export const TopAppBar = (props: Props) => {
           <span></span>
         </div>
 
-        <NavigationBtn clasName={`${!didScroll ? "unshow" : ""}`} />
+        <NavigationBtn
+          openMenu={openMenu}
+          clasName={`${!didScroll ? "unshow" : ""}`}
+        />
 
         <AppBar
           elevation={0}
@@ -91,7 +98,7 @@ export const TopAppBar = (props: Props) => {
               color="inherit"
               aria-label="menu"
             >
-              <a className="cd-nav-trigger">
+              <a ref={button} className="cd-nav-trigger">
                 <MenuIcon />
               </a>
             </IconButton>
@@ -103,7 +110,7 @@ export const TopAppBar = (props: Props) => {
               aria-label="search"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleMenu}
+              onClick={handleSearch}
               color="inherit"
             >
               <SearchIcon />

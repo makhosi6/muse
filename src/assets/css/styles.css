@@ -679,7 +679,6 @@ main,
   opacity: 0;
   transition: visibility 0s, opacity 0.3s;
   z-index: 10000;
-  margin: 0;
 }
 .nav-menu .cd-primary-nav li {
   margin: 1.6em 0;
@@ -813,4 +812,12 @@ main,
 
 .cd-primary-nav {
   z-index: 10001 !important;
+}
+
+.menu-content {
+  background-color: #D6D6D6;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  margin: auto;
 }/*# sourceMappingURL=styles.css.map */

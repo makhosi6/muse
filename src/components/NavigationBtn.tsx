@@ -4,13 +4,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 type NavProps = {
   clasName:  string
+  openMenu: any
 };
 
 const NavigationBtn = (props: NavProps) => {
   return (
     <>
       <div className={`muse-nav-btn ${props.clasName}`}>
-        <IconButton aria-label="delete">
+        <IconButton onClick={props.openMenu} aria-label="delete">
           <MenuIcon />
         </IconButton>
       </div>
