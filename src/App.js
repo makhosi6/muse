@@ -37,7 +37,6 @@ render() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/muse" component={Home} />
         <Route path="/:slug" component={Home} />
         <Route path="/:slug/:name" component={Error} />
       </Switch>

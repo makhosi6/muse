@@ -38,7 +38,7 @@ export default function ContainerBlock() {
             ) : (
               <>
                 <Trends data={context.trends} />
-                <Header />
+                {/* <Header /> */}
                 <section className="pages-section">
                   {/* map of presentation element using data pages in a arrays/objects */}
                   {context.articles.pages.map((arr) => (

@@ -12,7 +12,7 @@ export default class MyProvider extends Component {
       ],
       lee: "jus a rndm value",
       articles: {
-        pages: [arr],
+        pages: [],
       },
     };
 
@@ -103,7 +103,7 @@ export default class MyProvider extends Component {
 const MyConsumer = MyContext.Consumer;
 
 export { MyProvider, MyConsumer, MyContext };
-let API = process.env.REACT_APP_API_URL;
+let API = process.env.REACT_APP_API;
 let arr = [
   {
     id: "1s2aqfzd388g0rd91q6joujqdvvujaas",
