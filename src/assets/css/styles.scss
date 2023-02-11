@@ -14,6 +14,11 @@ Menu animation
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+        
+    }
+
+    .item-7{
+        background-color: transparent !important;
     }
 
     *::after,
@@ -175,7 +180,7 @@ Menu animation
     }
 
     .cd-nav-trigger_one::after {
-        background-color: #ffb441;
+        background-color: rgba(128, 128, 128, 0.36);
         -webkit-transform: scale(0);
         -moz-transform: scale(0);
         -ms-transform: scale(0);
@@ -431,7 +436,7 @@ Menu animation
 .cd-nav-trigger,
 .cd-overlay-nav,
 .cd-overlay-content,
-.menu-content,
+.menu-content
     {
     z-index: 10000 !important;
 }

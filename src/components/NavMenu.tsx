@@ -9,7 +9,7 @@ type Props = {
 
 const NavMenu = (props: Props) => {
   return (
-    <nav className="menu-content">
+    <nav className="">
       <div className="cd-primary-nav">
       <div className="muse-nav-btn">
         <IconButton onClick={props.closeMenu} onKeyPress={props.closeMenu} aria-label="delete">

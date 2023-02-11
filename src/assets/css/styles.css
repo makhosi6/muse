@@ -60,7 +60,6 @@ body * {
   flex: none;
   order: 0;
   flex-grow: 0;
-  max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
   margin: auto;
@@ -536,12 +535,15 @@ main,
 .nav-menu *::before {
   box-sizing: border-box;
 }
+.nav-menu .item-7 {
+  background-color: transparent !important;
+}
 .nav-menu *::after,
 .nav-menu *::before {
   content: "";
 }
 .nav-menu a {
-  color: #666666;
+  color: rgba(102, 102, 102, 0.8588235294);
   text-decoration: none;
 }
 .nav-menu html,
@@ -627,13 +629,13 @@ main,
   transition-property: transform;
 }
 .nav-menu .cd-nav-trigger_one::before {
-  background-color: #666666;
+  background-color: rgba(102, 102, 102, 0.8588235294);
   transform: scale(1);
   transition-duration: 0.3s;
   transition-delay: 0.4s;
 }
 .nav-menu .cd-nav-trigger_one::after {
-  background-color: #ffb441;
+  background-color: rgba(128, 128, 128, 0.36);
   transform: scale(0);
   transition-duration: 0s;
   transition-delay: 0s;
@@ -671,7 +673,7 @@ main,
   width: 100%;
   padding: 80px 5%;
   z-index: 3;
-  background-color: #666666;
+  background-color: rgba(102, 102, 102, 0.8588235294);
   overflow: auto;
   /* this fixes the buggy scrolling on webkit browsers - mobile devices only - when overflow property is applied */
   -webkit-overflow-scrolling: touch;
@@ -753,14 +755,14 @@ main,
   z-index: 2;
 }
 .nav-menu .cd-overlay-nav span {
-  background-color: #666666;
+  background-color: rgba(102, 102, 102, 0.8588235294);
 }
 .nav-menu .cd-overlay-content {
   /* main rounded colored bg 2 */
   z-index: 4;
 }
 .nav-menu .cd-overlay-content span {
-  background-color: #666666;
+  background-color: rgba(102, 102, 102, 0.8588235294);
 }
 .nav-menu .cd-content {
   /* just some dummy content */
@@ -781,7 +783,7 @@ main,
 }
 .nav-menu .cd-content p {
   line-height: 1.5;
-  color: #666666;
+  color: rgba(102, 102, 102, 0.8588235294);
 }
 @media only screen and (min-width: 768px) {
   .nav-menu .cd-content .cd-intro {
