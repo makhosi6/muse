@@ -565,7 +565,9 @@ main,
 .nav-menu .cd-logo img {
   display: block;
 }
-.nav-menu .MuiIconButton-label {
+.nav-menu .MuiIconButton-label,
+.nav-menu .MuiIconButton-label div,
+.nav-menu .MuiIconButton-label a {
   width: 24px;
   height: 24px !important;
 }

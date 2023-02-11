@@ -14,10 +14,10 @@ Menu animation
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        
+
     }
 
-    .item-7{
+    .item-7 {
         background-color: transparent !important;
     }
 
@@ -68,7 +68,9 @@ Menu animation
         display: block;
     }
 
-    .MuiIconButton-label {
+    .MuiIconButton-label,
+    .MuiIconButton-label div,
+    .MuiIconButton-label a {
         width: 24px;
         height: 24px !important;
     }
@@ -436,8 +438,7 @@ Menu animation
 .cd-nav-trigger,
 .cd-overlay-nav,
 .cd-overlay-content,
-.menu-content
-    {
+.menu-content {
     z-index: 10000 !important;
 }
 

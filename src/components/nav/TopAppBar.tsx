@@ -11,9 +11,10 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Logo from "./Logo";
+import Logo from "../util/Logo";
 import NavigationBtn from "./NavigationBtn";
 import NavMenu from "./NavMenu";
+import  SearchDrawer from "../search/SearchDrawer"
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => {
       marginRight: theme.spacing(2),
     },
     title: {
+      paddingTop: 10,
       flexGrow: 1,
     },
   };
@@ -113,7 +115,8 @@ export const TopAppBar = (props: Props) => {
               onClick={handleSearch}
               color="inherit"
             >
-              <SearchIcon />
+                <SearchDrawer />
+              {/* <SearchIcon /> */}
             </IconButton>
           </Toolbar>
         </AppBar>

@@ -1,5 +1,5 @@
 import React, { KeyboardEventHandler, MouseEventHandler } from "react";
-import { MobileWrapper } from "./layout/MobileWrapper";
+import { MobileWrapper } from "../layout/MobileWrapper";
 import { IconButton } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 type Props = {

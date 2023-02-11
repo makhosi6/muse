@@ -1,3 +1,6 @@
+import React from "react";
+import { createContext } from "react"
+
 const state = {
     // articles: [],
     trends: [],
@@ -8,3 +11,8 @@ const state = {
     ]
 
 }
+
+
+const MyContext = createContext([]);
+
+export default MyContext;

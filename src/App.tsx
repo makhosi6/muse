@@ -5,10 +5,10 @@ import { MobileWrapper } from "./components/layout/MobileWrapper";
 import { Story } from "./components/articles/Story";
 import Chips from "./components/articles/Chips";
 import { BigStory } from "./components/articles/BigStory";
-import NewsCategory from "./components/NewsCategory";
-import MoneyCharts from "./components/MoneyCharts";
+import NewsCategory from "./components/util/NewsCategory";
+import MoneyCharts from "./components/util/MoneyCharts";
 import { LoadMore } from "./components/articles/LoadMore";
-import { TopAppBar } from "./components/TopAppBar";
+import { TopAppBar } from "./components/nav/TopAppBar";
 
 function App() {
   const [count, setCount] = useState(0);

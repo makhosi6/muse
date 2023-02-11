@@ -1,6 +1,6 @@
 import { Link, Theme, Typography } from "@material-ui/core";
 import React from "react";
-import logo from "../assets/images/logo.svg";
+import logo from "../../assets/images/logo.svg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const Logo = () => {
@@ -9,9 +9,9 @@ const Logo = () => {
       <img
         style={{ alignItems: "centre" }}
         src={logo}
-        alt="logo"
-        width="100"
-        height="30"
+        alt="muse logo"
+        width="85"
+        height="25"
         sizes=""
         srcSet={logo}
       />
