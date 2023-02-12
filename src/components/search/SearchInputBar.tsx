@@ -1,5 +1,5 @@
 import React, { Consumer, Context } from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { alpha as fade, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import  MyContext  from "../../context";

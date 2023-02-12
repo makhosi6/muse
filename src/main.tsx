@@ -5,6 +5,8 @@ import "./index.css";
 import "./assets/css/styles.css";
 import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
+console.log(import.meta.env);
+
 const theme = createTheme({
   palette: {
     primary: {

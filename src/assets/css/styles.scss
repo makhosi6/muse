@@ -17,9 +17,7 @@ Menu animation
 
     }
 
-    .item-7 {
-        background-color: transparent !important;
-    }
+
 
     *::after,
     *::before {
@@ -247,12 +245,13 @@ Menu animation
     }
 
     .cd-primary-nav {
+        border: 1px solid limegreen;
         /* by default it's hidden */
         position: fixed;
         left: 0;
         top: 0;
-        height: 100%;
-        width: 100%;
+        height: 100vh;
+        width: 100vw;
         padding: 80px 5%;
         z-index: 3;
         background-color: $darker;
@@ -266,6 +265,11 @@ Menu animation
         transition: visibility 0s, opacity 0.3s;
         z-index: 10000;
         // margin: 0;
+
+        overflow: hidden;
+        max-width: 100vw;
+        max-height: 100vh;
+
     }
 
     .cd-primary-nav li {
@@ -322,7 +326,6 @@ Menu animation
         position: fixed;
         top: 13px;
         left: 56px;
-        ;
         height: 4px;
         width: 4px;
         -webkit-transform: translateX(-20px) translateY(20px);
@@ -453,4 +456,8 @@ Menu animation
     height: 100%;
     max-width: 600px;
     margin: auto;
+    overflow: scroll;
+    padding: 0 !important;
+
+
 }
