@@ -356,7 +356,8 @@ main,
         grid-template-columns: 1fr 1fr 1fr;
         gap: 2px;
 
-        &::before, &::after  {
+        &::before,
+        &::after {
             content: none !important;
         }
 
@@ -367,10 +368,11 @@ main,
             padding: 10px;
             border: 1px solid darkgray;
 
- img {
-    object-fit: contain !important;
- }
-            &>div,
+            img {
+                object-fit: contain !important;
+            }
+
+            &>a,
             &>img {
                 max-width: 100;
                 width: 100%;

@@ -538,7 +538,7 @@ main *,
   -o-object-fit: contain !important;
      object-fit: contain !important;
 }
-.muse-grid-layout > div > div, .muse-grid-layout > div > img, .muse-grid-layout > .grid-items > div, .muse-grid-layout > .grid-items > img {
+.muse-grid-layout > div > a, .muse-grid-layout > div > img, .muse-grid-layout > .grid-items > a, .muse-grid-layout > .grid-items > img {
   max-width: 100;
   width: 100%;
   max-height: 100;
