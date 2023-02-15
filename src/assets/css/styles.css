@@ -521,16 +521,17 @@ main *,
 }
 .muse-grid-layout {
   max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2px;
 }
 .muse-grid-layout::before, .muse-grid-layout::after {
   content: none !important;
 }
 .muse-grid-layout > div, .muse-grid-layout > .grid-items {
-  height: 100px;
   overflow: hidden;
+  width: -moz-max-content;
+  width: max-content;
   padding: 10px;
   border: 1px solid darkgray;
 }

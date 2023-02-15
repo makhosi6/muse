@@ -1,8 +1,9 @@
-import React, { Consumer, Context } from "react";
+import React, { Consumer, Context, KeyboardEvent, useContext } from "react";
 import { alpha as fade, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import  MyContext  from "../../context";
+import MyContext from "../../context";
+import { ArticlesContext, TopicsContext } from "../../App";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -76,49 +77,48 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-type Props = {}
+type Props = {};
 
 export default function SearchInput(props: Props) {
   const classes = useStyles();
 
-  const fn = () :Array<unknown> =>  ['zero','one', 'two'];
+  const articles = useContext(ArticlesContext);
   return (
-    <MyContext.Consumer>
-      {(context: any) => (
-        <React.Fragment>
-          <div className={classes.middle}>
-            <Autocomplete
-              className={classes.middle}
-              freeSolo
-              id="free-solo-2-demo"
-              disableClearable
-              options={fn()}
-              renderInput={(params) => (
-                <TextField
-                  onSelect={(event) => {
-                    // if (event.target.value !== "") {
-                    //   const obj = context.search.filter(
-                    //     (opt) => opt.headline === event.target.value
-                    //   );
-                    //   if (obj[0] !== undefined) {
-                    //     window.location.assign(`${obj[0].url}`);
-                    //     // window.open(`${obj[0].url}`);
-                    //   //  props.changes("top", false)
-                    //   }
-                    // }
-                  }}
-                  autoFocus
-                  {...params}
-                  label="Search"
-                  margin="normal"
-                  variant="outlined"
-                  InputProps={{ ...params.InputProps, type: "search" }}
-                />
-              )}
+    // <MyContext.Consumer>
+    //   {(context: any) => (
+    <React.Fragment>
+      <div className={classes.middle}>
+        <Autocomplete
+          className={classes.middle}
+          freeSolo
+          id="free-solo-2-demo"
+          disableClearable
+          options={articles.map((a: any) => a.headline)}
+          renderInput={(params) => (
+            <TextField
+              onSelect={(event: any) => {
+                if (event.target.value !== "") {
+                  const obj = articles.filter(
+                    (opt: any) => opt.headline === event.target.value
+                  );
+                  if (obj[0] !== undefined) {
+                    //@ts-ignore
+                    window.open(`${obj[0].url}`);
+                  }
+                }
+              }}
+              autoFocus
+              {...params}
+              label="Search"
+              margin="normal"
+              variant="outlined"
+              InputProps={{ ...params.InputProps, type: "search" }}
             />
-          </div>
-        </React.Fragment>
-      )}
-    </MyContext.Consumer>
+          )}
+        />
+      </div>
+    </React.Fragment>
+    //   )}
+    // </MyContext.Consumer>
   );
 }

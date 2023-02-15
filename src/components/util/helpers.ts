@@ -63,6 +63,16 @@ export const _rgbToHex = (rgb: Array<number>) =>
 
 /**
  *
+ * @param value
+ * @param index
+ * @param array
+ * @returns
+ */
+export function onlyUnique(value: string, index: number, array: Array<string>) {
+  return array.indexOf(value) === index;
+}
+/**
+ *
  * @param str string
  * @returns
  */
@@ -71,7 +81,7 @@ export function hashCode(str: string) {
     .reduce((s, c) => (Math.imul(31, s) + c.charCodeAt(0)) | 0, 0)
     .toString();
 }
-type ReceiveData = (args: string) => void;
+type ReceiveData = (args: any) => void;
 
 /**
  * Get articles of type card
@@ -83,14 +93,14 @@ export const fetchArticleData = (callback: ReceiveData) => {
   headers.append("Authorization", `Bearer ${TOKEN}`);
 
   fetch(
-    "https://museapi.byteestudio.com/api/graphql?query={%20filtered(first:90%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}",
+    "https://museapi.byteestudio.com/api/graphql?query={%20filtered(first:120%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}",
     {
       method: "GET",
       headers: headers,
       redirect: "follow",
     }
   )
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then(callback)
     .catch((error) => console.error("Error: ", error));
 };
@@ -118,7 +128,8 @@ export const fetchLatestData = (callback: ReceiveData) => {
       redirect: "follow",
     }
   )
-    .then((response) => response.text())
+    .then((response) => response.json())
+
     .then(callback)
     .catch((error) => console.log("error", error));
 };
@@ -138,7 +149,7 @@ export const fetchTrendsData = (callback: ReceiveData) => {
       redirect: "follow",
     }
   )
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then(callback)
     .catch((error) => console.log("error", error));
 };

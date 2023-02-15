@@ -1,17 +1,27 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { imgData, _rgbToHex, hashCode } from "../util/helpers";
 import logoSrc from "../../assets/images/ewn-logo.png";
+import { Link, Theme, createStyles, makeStyles } from "@material-ui/core";
+import { TopicsContext } from "../../App";
 //@ts-ignore
 // import ColorThief from "../../../node_modules/colorthief/dist/color-thief.mjs"
 
 const ENV = import.meta.env.MODE;
 type Props = {};
 
+
+
 export const MenuGrid = (props: Props) => {
+  const topics = useContext(TopicsContext);
   return (
     <div className="muse-grid-layout">
-      {arr.map((i) => (
-        <MenuGridItem url="/page-two" src={i} uid={hashCode(i)} key={hashCode(i)} />
+      {topics.map((t) => (
+        <MenuGridItem
+          url={`/topic/${t}`}
+          title={t}
+          uid={hashCode(t)}
+          key={hashCode(t)}
+        />
       ))}
     </div>
   );
@@ -19,15 +29,8 @@ export const MenuGrid = (props: Props) => {
 
 
 
-let arr = [
-  "https://ewn.co.za/site/design/img/ewn-logo.png",
-  "https://nav.files.bbci.co.uk/orbit/db9d3ece642dbb01f23f791064ec1502/img/blq-orbit-blocks_grey_alpha.png",
-  "https://www.enca.com/sites/default/files/styles/news_listing/public/afp/2023-01/doc-33846AQ-%40photo0.jpg?itok=SU9aRRra",
-  "https://www.conviva.com/wp-content/uploads/2019/12/Bloomberg-logo-.png",
-];
-
 type ItemProps = {
-  src: string;
+  title: string;
   uid: string;
   url: string;
 };
@@ -36,20 +39,26 @@ type ColorObj = {
   hex: string;
 };
 
-export default function MenuGridItem(props: ItemProps) {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      ...theme.typography.button,
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing(1),
+      overflow: "hidden"
+    },
+  })
+);
 
+export default function MenuGridItem(props: ItemProps) {
+  const classes = useStyles();
   const img = useRef(null);
 
   return (
-    <a href={props.url} className={"image-cont-" + props.uid}>
-      <img
-        ref={img}
-        src={props.src}
-        alt="img"
-        width="100"
-        height="50"
-        crossOrigin="anonymous"
-      />
-    </a>
+    <div className={"image-cont-" + props.uid}>
+      <Link color="inherit" href={props.url}>
+        <span className={classes.root}>{props.title.toUpperCase()}</span>
+      </Link>
+    </div>
   );
 }

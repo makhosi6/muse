@@ -352,8 +352,8 @@ main,
 
     &-grid-layout {
         max-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        display: flex;
+     flex-wrap: wrap;
         gap: 2px;
 
         &::before,
@@ -363,8 +363,9 @@ main,
 
         &>div,
         &>.grid-items {
-            height: 100px;
+            // height: 100px;
             overflow: hidden;
+            width: max-content;
             padding: 10px;
             border: 1px solid darkgray;
 
