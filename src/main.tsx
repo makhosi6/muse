@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import "./assets/css/styles.css";
 import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter } from "react-router-dom";
 
 // console.log(import.meta.env);
 
@@ -17,7 +18,9 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
+    <BrowserRouter>
       <App />
+      </BrowserRouter>
     </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById("root") as HTMLElement

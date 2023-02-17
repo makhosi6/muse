@@ -245,7 +245,6 @@ Menu animation
     }
 
     .cd-primary-nav {
-        border: 1px solid limegreen;
         /* by default it's hidden */
         position: fixed;
         left: 0;
@@ -459,5 +458,20 @@ Menu animation
     overflow: scroll;
     padding: 0 !important;
 
+
+}
+
+.red-border {
+    border: 1px solid red;
+}
+
+.centre {
+    max-width: max-content;
+    margin: auto;
+    padding: 10px;
+}
+
+.error {
+    height: calc(100vh - 80px);
 
 }

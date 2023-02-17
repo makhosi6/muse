@@ -6,7 +6,6 @@ import { Story } from "./components/articles/Story";
 import Chips from "./components/articles/Chips";
 import { BigStory } from "./components/articles/BigStory";
 import NewsCategory from "./components/util/NewsCategory";
-import MoneyCharts from "./components/util/MoneyCharts";
 import { LoadMore } from "./components/articles/LoadMore";
 import { TopAppBar } from "./components/nav/TopAppBar";
 import {
@@ -15,6 +14,10 @@ import {
   fetchTrendsData,
   onlyUnique,
 } from "./components/util/helpers";
+import { Switch, Route } from "react-router-dom";
+import { TopicContent } from "./components/pages/TopicContent";
+import MainContent from "./components/pages/MainContent";
+import { NoMatch } from "./components/pages/NoMatch";
 
 /**
  * top trending article
@@ -56,7 +59,7 @@ function App() {
       ///
       let list = l.data.filtered.data;
       ///
-      let main = list.shift();
+      let main: {} | null = null;
       ///
       let topics: string[] = [];
       list.map((article: Object) => {
@@ -67,12 +70,17 @@ function App() {
 
         if (topicOne) topics.push(topicOne.toLowerCase());
         if (topicTwo) topics.push(topicTwo.toLowerCase());
+
+        //@ts-ignore
+        if (main === null && article.thumbnail !== null) {
+          main = article;
+        }
       });
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));
       ///
       setArticles(list);
-      setMain(main);
+      if (main) setMain(main);
     });
     fetchLatestData((l) => setLatest(l.data.filtered.data));
     fetchTrendsData((l) => setTrends(l.data.filtered.data));
@@ -90,6 +98,23 @@ function App() {
                 <TopAppBar />
                 <MobileWrapper>
                   <Chips />
+                  <Switch>
+                    <Route exact path="/" component={MainContent} />
+                    <Route
+                      exact
+                      path="/topic/:topics"
+                      component={TopicContent}
+                    />
+                    <Route path="*">
+                      <NoMatch />
+                    </Route>
+                  </Switch>
+                  {/* / */}
+                  {/* <BigStory />
+                  <NewsCategory />
+                  <Story />
+                  <Story />
+                  <Story />
                   <BigStory />
                   <NewsCategory />
                   <Story />
@@ -103,11 +128,8 @@ function App() {
                   <NewsCategory />
                   <Story />
                   <Story />
-                  <Story /> <BigStory />
-                  <NewsCategory />
-                  <Story />
-                  <Story />
-                  <Story />
+                  <Story /> */}
+                  {/*  */}
                   <LoadMore />
                 </MobileWrapper>
               </TopicsContext.Provider>
