@@ -9,6 +9,7 @@ import NewsCategory from "./components/util/NewsCategory";
 import { LoadMore } from "./components/articles/LoadMore";
 import { TopAppBar } from "./components/nav/TopAppBar";
 import {
+  ArticleType,
   fetchArticleData,
   fetchLatestData,
   fetchTrendsData,
@@ -22,36 +23,38 @@ import { NoMatch } from "./components/pages/NoMatch";
 /**
  * top trending article
  */
-export const MainArticleContext = React.createContext({});
+//@ts-ignore
+export const MainArticleContext = React.createContext<ArticleType>({});
 MainArticleContext.displayName = "MainArticleContext";
 /**
  * List of all other articles
  */
-export const ArticlesContext = React.createContext([]);
+export const ArticlesContext = React.createContext<Array<ArticleType>>([]);
 ArticlesContext.displayName = "ArticlesContext";
 /**
  * Trending key words/phrases, extracted from google trends
  */
-export const TrendsContext = React.createContext([]);
+export const TrendsContext = React.createContext<Array<ArticleType>>([]);
 TrendsContext.displayName = "TrendsContext";
 /**
  * Latest articles
  */
-export const LatestContext = React.createContext([]);
+export const LatestContext = React.createContext<Array<ArticleType>>([]);
 LatestContext.displayName = "LatestsContext";
 
 /**
  * Topics
  */
-export const TopicsContext = React.createContext([]);
+export const TopicsContext = React.createContext<Array<ArticleType>>([]);
 TopicsContext.displayName = "TopicsContext";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [articles, setArticles] = useState([]);
-  const [trends, setTrends] = useState([]);
+  const [articles, setArticles] = useState<Array<ArticleType>>([]);
+  const [trends, setTrends] = useState<Array<ArticleType>>([]);
   const [latest, setLatest] = useState([]);
-  const [main, setMain] = useState({});
+  //@ts-ignore
+  const [main, setMain] = useState<ArticleType>({});
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -59,10 +62,10 @@ function App() {
       ///
       let list = l.data.filtered.data;
       ///
-      let main: {} | null = null;
+      let main: ArticleType | null = null;
       ///
       let topics: string[] = [];
-      list.map((article: Object) => {
+      list.map((article: ArticleType) => {
         //@ts-ignore
         let topicOne = article["category"];
         //@ts-ignore
@@ -76,13 +79,36 @@ function App() {
           main = article;
         }
       });
+
+      console.log({list});
+      
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));
       ///
-      setArticles(list);
+      setArticles(list.filter((a: ArticleType) => a.id !== main?.id));
       if (main) setMain(main);
     });
-    fetchLatestData((l) => setLatest(l.data.filtered.data));
+    fetchLatestData((l) => {
+      ///
+      let list = l.data.filtered.data;
+
+      let topics: string[] = [];
+      list.map((article: ArticleType) => {
+        //@ts-ignore
+        let topicOne = article["category"];
+        //@ts-ignore
+        let topicTwo = article["tag"];
+
+        if (topicOne) topics.push(topicOne.toLowerCase());
+        if (topicTwo) topics.push(topicTwo.toLowerCase());
+      });
+      console.log({listOne: list});
+      
+      //@ts-ignore
+      setTopics(topics.filter(onlyUnique));
+      setLatest(list);
+    });
+
     fetchTrendsData((l) => setTrends(l.data.filtered.data));
   }, []);
 
@@ -98,13 +124,21 @@ function App() {
                 <TopAppBar />
                 <MobileWrapper>
                   <Chips />
+                  {/*
+                     // @ts-ignore */}
                   <Switch>
+                    {/*
+                       // @ts-ignore */}
                     <Route exact path="/" component={MainContent} />
+                    {/*
+                      // @ts-ignore */}
                     <Route
                       exact
-                      path="/topic/:topics"
+                      path="/topic/:topic"
                       component={TopicContent}
                     />
+                    {/*
+                      // @ts-ignore */}
                     <Route path="*">
                       <NoMatch />
                     </Route>
@@ -130,7 +164,6 @@ function App() {
                   <Story />
                   <Story /> */}
                   {/*  */}
-                  <LoadMore />
                 </MobileWrapper>
               </TopicsContext.Provider>
             </LatestContext.Provider>

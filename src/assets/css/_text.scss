@@ -168,7 +168,7 @@
 
     }
 
-    &-time {
+    &-time , &-src-name {
         font-family: 'Libre Franklin';
         font-style: normal;
         font-weight: 500;
@@ -210,9 +210,9 @@
         flex-grow: 0;
     }
 
-}
-.ellipsis {
+
+&-ellipsis {
     white-space: pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} }

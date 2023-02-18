@@ -153,3 +153,27 @@ export const fetchTrendsData = (callback: ReceiveData) => {
     .then(callback)
     .catch((error) => console.log("error", error));
 };
+
+
+
+export type ArticleType = {
+      id: string;
+      url: string;
+      headline: string;
+      lede:string;
+      thumbnail: string;
+      category:string;
+      catLink: string;
+      images: string;
+      src_name: string;
+      src_url: string;
+      src_logo: string;
+      vidLen: string;
+      type: string;
+      tag: string;
+      tags: string;
+      author: string;
+      authors: string;
+      date: string;
+
+};

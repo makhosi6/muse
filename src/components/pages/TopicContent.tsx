@@ -1,14 +1,47 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { ArticlesContext } from "../../App";
+import { LoadMore } from "../articles/LoadMore";
+import { ArticleType } from "../util/helpers";
+import { Story } from "../articles/Story";
+import { ShortStory } from "../articles/ShortArticle";
+import Loader from "../util/Loader";
+import NewsCategory from "../util/NewsCategory";
 
-type Props = {}
+type Props = {
+  topic: string;
+  match: {
+    params: {
+      topic: string;
+    };
+  };
+};
 
 export const TopicContent = (props: Props) => {
+  const params = props.match.params;
 
+  const articles = useContext(ArticlesContext);
 
+  const topicRelated = articles.filter(
+    (article: ArticleType) =>
+      article.tag === params.topic || article.category === params.topic
+  );
 
-  
+  //@ts-ignore
+
+  if (topicRelated.length< 1) return <Loader />;
+
   return (
-    <div className='red-border' >Topic Content</div>
-  )
-}
+    <>
+      <NewsCategory key={"news-category"} label={params.topic} />
+      {topicRelated.map((art: ArticleType) =>
+        art.thumbnail !== null ? (
+          <Story key={art.id} story={art} />
+        ) : (
+          <ShortStory key={art.id} story={art} />
+        )
+      )}
+      {topicRelated.length > 10 ? <LoadMore key="loadmore" /> : null}
+    </>
+  );
+};

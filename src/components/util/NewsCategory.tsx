@@ -1,13 +1,15 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  label: string
+}
 
 const NewsCategory = (props: Props) => {
   return (
     <div className='muse-news-heading'>
         <div>
             <span className="muse-news-heading-title">
-                Latest Updates.
+               {props.label}
             </span>
         </div>
     </div>

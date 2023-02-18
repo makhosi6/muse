@@ -209,7 +209,7 @@ body * {
   text-transform: uppercase;
   color: #000000;
 }
-.muse-time {
+.muse-time, .muse-src-name {
   font-family: "Libre Franklin";
   font-style: normal;
   font-weight: 500;
@@ -245,8 +245,7 @@ body * {
   align-self: stretch;
   flex-grow: 0;
 }
-
-.ellipsis {
+.muse-ellipsis {
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -293,7 +292,7 @@ main *,
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  padding: 21px 0px 23px;
+  padding: 12px 0px 12px;
   gap: 24px;
   /* Inside auto layout */
   flex: none;
@@ -320,6 +319,15 @@ main *,
   flex: none;
   order: 1;
   flex-grow: 0;
+}
+.muse-story-img-area a,
+.muse-story-img-area img {
+  width: 100%;
+  height: 100%;
+}
+.muse-story-img-area img {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
 }
 .muse-chips {
   /* Auto layout */
@@ -388,6 +396,17 @@ main *,
   width: 100%;
   padding: 8.96475px 0 0 0;
 }
+.muse-loader {
+  margin-top: 10px;
+  max-width: 700;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 40px;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
 .muse-big-img {
   /* Image Container */
   display: flex;
@@ -403,6 +422,7 @@ main *,
   flex-grow: 0;
   background-color: #edecec;
 }
+.muse-big-img a,
 .muse-big-img img {
   width: 100%;
   height: 100%;
@@ -441,10 +461,12 @@ main *,
   font-style: italic;
   font-weight: 700;
   line-height: 10px;
+  text-transform: capitalize;
   /* identical to box height */
   display: flex;
   align-items: center;
   letter-spacing: 0.0747063px;
+  font-size: large;
   padding: 10px;
   /* Inside auto layout */
   flex: none;
@@ -452,7 +474,7 @@ main *,
   align-self: stretch;
   flex-grow: 0;
 }
-.muse-time, .muse-lite-text {
+.muse-time, .muse-lite-text, .muse-src-name {
   color: rgba(0, 0, 0, 0.6) !important;
 }
 .muse-money-charts {
