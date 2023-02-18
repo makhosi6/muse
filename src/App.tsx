@@ -45,7 +45,7 @@ LatestContext.displayName = "LatestsContext";
 /**
  * Topics
  */
-export const TopicsContext = React.createContext<Array<ArticleType>>([]);
+export const TopicsContext = React.createContext<Array<string>>([]);
 TopicsContext.displayName = "TopicsContext";
 
 function App() {

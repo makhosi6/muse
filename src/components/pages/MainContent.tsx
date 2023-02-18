@@ -1,5 +1,10 @@
 import React, { useContext } from "react";
-import { ArticlesContext, LatestContext, MainArticleContext, TrendsContext } from "../../App";
+import {
+  ArticlesContext,
+  LatestContext,
+  MainArticleContext,
+  TrendsContext,
+} from "../../App";
 import { BigStory } from "../articles/BigStory";
 import { LoadMore } from "../articles/LoadMore";
 import { ArticleType } from "../util/helpers";
@@ -20,9 +25,14 @@ const MainContent = (props: Props) => {
   return (
     <div>
       <BigStory key={main.id} story={main} />
-      <NewsCategory key={"trends"} label={"Trends"} />
+
+      {/*
+       *  Articles
+       *
+       */}
+      {articles.length < 1 && <NewsCategory key={"trends"} label={"Trends"} />}
       {articles.map((art: ArticleType) =>
-        !art.category && main.author == "pizza" ? (
+        !art.category && main.author == "fooBaz" ? (
           (() => {
             // console.log({ VALID: art });
 
@@ -34,9 +44,13 @@ const MainContent = (props: Props) => {
           <ShortStory key={art.id} story={art} />
         )
       )}
-    <NewsCategory key={"latest"} label={"Latest"} />
+      {/*
+       *  Latest
+       *
+       */}
+      {latest.length < 1 && <NewsCategory key={"latest"} label={"Latest"} />}
       {latest.map((art: ArticleType) =>
-        !art.category && main.author == "pizza" ? (
+        !art.category && main.author == "fooBaz" ? (
           (() => {
             // console.log({ VALID: art });
 

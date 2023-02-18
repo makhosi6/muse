@@ -48,11 +48,12 @@ export const Story = (props: Props) => {
           </span>
         </div>
         <div className="muse-story-img-area">
+        <a href={story.url} target="_blank" rel="noopener noreferrer">
           <img
             src={story.thumbnail}
             alt={story.src_name}
             srcSet={story.thumbnail}
-          />
+          /></a>
         </div>
       </div>
     </article>
