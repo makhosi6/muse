@@ -11,7 +11,7 @@ const state = {
     ]
 
 }
-console.log(import.meta.env);
+// console.log(import.meta.env);
 
 const MyContext = createContext([]);
 

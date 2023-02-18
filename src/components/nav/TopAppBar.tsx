@@ -14,7 +14,7 @@ import Menu from "@material-ui/core/Menu";
 import Logo from "../util/Logo";
 import NavigationBtn from "./NavigationBtn";
 import NavMenu from "./NavMenu";
-import  SearchDrawer from "../search/SearchDrawer"
+import SearchDrawer from "../search/SearchDrawer";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -40,11 +40,14 @@ export const TopAppBar = (props: Props) => {
   const [didScroll, setDidScroll] = useState(false);
 
   const openMenu = (event: any) => {
+    // console.log({button, evnt: event});
+
     if (button.current)
       //@ts-ignore
       button.current?.click();
   };
   const closeMenu = (event: any) => {
+    // console.log({button, evnt: event});
     if (button.current)
       //@ts-ignore
       button.current?.click();
@@ -115,7 +118,7 @@ export const TopAppBar = (props: Props) => {
               onClick={handleSearch}
               color="inherit"
             >
-                <SearchDrawer />
+              <SearchDrawer />
               {/* <SearchIcon /> */}
             </IconButton>
           </Toolbar>

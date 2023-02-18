@@ -14,8 +14,8 @@ type Props = {
 
 const NavMenu = (props: Props) => {
   function absorb(event: any): void {
-    console.log(event);
-    event.preventDefault();
+    // console.log(event);
+    // event.preventDefault();
   }
 
   return (

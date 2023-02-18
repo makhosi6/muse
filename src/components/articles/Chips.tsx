@@ -24,7 +24,7 @@ const Chip = (props: ChipProps) => {
       <div className="muse-chip">
         <span className="muse-chip-label">
           <a href={props.url} target="_blank" rel="noopener noreferrer">
-          #{props.title}
+          #{props.title.replaceAll(" ","")}
           </a>
           </span>
         <span className="muse-chip-divider"></span>

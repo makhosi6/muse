@@ -80,7 +80,7 @@ function App() {
         }
       });
 
-      console.log({list});
+      // console.log({list});
       
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));
@@ -102,7 +102,7 @@ function App() {
         if (topicOne) topics.push(topicOne.toLowerCase());
         if (topicTwo) topics.push(topicTwo.toLowerCase());
       });
-      console.log({listOne: list});
+      // console.log({listOne: list});
       
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));

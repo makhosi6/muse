@@ -34,9 +34,9 @@ export const ShortStory = (props: Props) => {
                 <span className="muse-src-name">{story.src_name}</span>
               </a>
             </div>
-            <span title={story.headline} className="muse-title ellipsis">
+            <a href={story.url} title={story.headline} className="muse-title ellipsis">
               {props.story.headline}
-            </span>
+            </a>
           </div>
         </div>
       </div>

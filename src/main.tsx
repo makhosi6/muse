@@ -18,6 +18,8 @@ const theme = createTheme({
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
+      {/* 
+      //@ts-ignore */}
     <BrowserRouter>
       <App />
       </BrowserRouter>

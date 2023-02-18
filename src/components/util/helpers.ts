@@ -19,7 +19,7 @@ export const imgData = async (url: string): Promise<Blob | null> => {
 
     let data = await response.blob();
 
-    console.log({ data });
+    // console.log({ data });
 
     return data;
   } catch (error) {
