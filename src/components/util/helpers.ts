@@ -166,6 +166,13 @@ export const fetchTrendsData = (callback: ReceiveData) => {
     });
 };
 
+export const sortingFn = (a: ArticleType, b: ArticleType) => {
+  if (a.thumbnail && !b.thumbnail) return -1;
+  if (!a.thumbnail && b.thumbnail) return 1;
+
+  return 0;
+};
+
 export type ArticleType = {
   id: string;
   url: string;

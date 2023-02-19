@@ -7,7 +7,7 @@ import {
 } from "../../App";
 import { BigStory } from "../articles/BigStory";
 import { LoadMore } from "../articles/LoadMore";
-import { ArticleType } from "../util/helpers";
+import { ArticleType, sortingFn } from "../util/helpers";
 import { Story } from "../articles/Story";
 import { ShortStory } from "../articles/ShortArticle";
 import Loader from "../util/Loader";
@@ -16,8 +16,8 @@ import NewsCategory from "../util/NewsCategory";
 type Props = {};
 
 const MainContent = (props: Props) => {
-  const articles = useContext(ArticlesContext);
-  const latest = useContext(LatestContext);
+  const articles = useContext(ArticlesContext).sort(sortingFn);
+  const latest = useContext(LatestContext).sort(sortingFn);;
 
   //@ts-ignore
   const main = useContext<ArticleType>(MainArticleContext);
@@ -30,7 +30,7 @@ const MainContent = (props: Props) => {
        *  Articles
        *
        */}
-      {articles.length < 1 && <NewsCategory key={"trends"} label={"Trends"} />}
+      {articles.length !== 0  && <NewsCategory key={"trends"} label={"Trends"} />}
       {articles.map((art: ArticleType) =>
         !art.category && main.author == "fooBaz" ? (
           (() => {
@@ -48,7 +48,7 @@ const MainContent = (props: Props) => {
        *  Latest
        *
        */}
-      {latest.length < 1 && <NewsCategory key={"latest"} label={"Latest"} />}
+      {latest.length !== 0  && <NewsCategory key={"latest"} label={"Latest"} />}
       {latest.map((art: ArticleType) =>
         !art.category && main.author == "fooBaz" ? (
           (() => {

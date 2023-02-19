@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ArticlesContext } from "../../App";
 import { LoadMore } from "../articles/LoadMore";
-import { ArticleType } from "../util/helpers";
+import { ArticleType, sortingFn } from "../util/helpers";
 import { Story } from "../articles/Story";
 import { ShortStory } from "../articles/ShortArticle";
 import Loader from "../util/Loader";
@@ -20,7 +20,7 @@ type Props = {
 export const TopicContent = (props: Props) => {
   const params = props.match.params;
 
-  const articles = useContext(ArticlesContext);
+  const articles = useContext(ArticlesContext).sort(sortingFn);;
 
   const topicRelated = [
     ...articles.filter((a) => a.tag === params.topic),
@@ -35,7 +35,7 @@ export const TopicContent = (props: Props) => {
 
   return (
     <>
-      <NewsCategory key={"news-category"} label={params.topic} />
+     {topicRelated.length !== 0 && <NewsCategory key={"news-category"} label={params.topic} />}
       {topicRelated.map((art: ArticleType) =>
         art.thumbnail !== null ? (
           <Story key={art.id} story={art} />
