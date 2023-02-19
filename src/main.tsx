@@ -13,8 +13,13 @@ const theme = createTheme({
     primary: {
       main: "#000000",
     },
+    // error: {
+    //   main: "#f44336"
+    // }
   },
 });
+
+
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>

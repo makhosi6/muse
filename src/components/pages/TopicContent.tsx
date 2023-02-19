@@ -22,14 +22,16 @@ export const TopicContent = (props: Props) => {
 
   const articles = useContext(ArticlesContext);
 
-  const topicRelated = articles.filter(
-    (article: ArticleType) =>
-      article.tag === params.topic || article.category === params.topic
-  );
+  const topicRelated = [
+    ...articles.filter((a) => a.tag === params.topic),
+    ...articles.filter((a) => a.category === params.topic),
+  ];
+
+  console.log(topicRelated.length);
 
   //@ts-ignore
 
-  if (topicRelated.length< 1) return <Loader />;
+  if (topicRelated.length < 1) return <Loader />;
 
   return (
     <>

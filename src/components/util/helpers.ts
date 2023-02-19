@@ -102,7 +102,11 @@ export const fetchArticleData = (callback: ReceiveData) => {
   )
     .then((response) => response.json())
     .then(callback)
-    .catch((error) => console.error("Error: ", error));
+    .catch((error) => {
+      console.error("Error: ", error);
+
+      callback(Error(`${error?.message}`));
+    });
 };
 /**
  * Filter by topic
@@ -131,7 +135,11 @@ export const fetchLatestData = (callback: ReceiveData) => {
     .then((response) => response.json())
 
     .then(callback)
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.error("Error: ", error);
+
+      callback(Error(`${error?.message}`));
+    });
 };
 /**
  * Hot trends
@@ -151,29 +159,30 @@ export const fetchTrendsData = (callback: ReceiveData) => {
   )
     .then((response) => response.json())
     .then(callback)
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.error("Error: ", error);
+
+      callback(Error(`${error?.message}`));
+    });
 };
 
-
-
 export type ArticleType = {
-      id: string;
-      url: string;
-      headline: string;
-      lede:string;
-      thumbnail: string;
-      category:string;
-      catLink: string;
-      images: string;
-      src_name: string;
-      src_url: string;
-      src_logo: string;
-      vidLen: string;
-      type: string;
-      tag: string;
-      tags: string;
-      author: string;
-      authors: string;
-      date: string;
-
+  id: string;
+  url: string;
+  headline: string;
+  lede: string;
+  thumbnail: string;
+  category: string;
+  catLink: string;
+  images: string;
+  src_name: string;
+  src_url: string;
+  src_logo: string;
+  vidLen: string;
+  type: string;
+  tag: string;
+  tags: string;
+  author: string;
+  authors: string;
+  date: string;
 };

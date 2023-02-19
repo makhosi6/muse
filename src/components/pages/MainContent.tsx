@@ -62,7 +62,7 @@ const MainContent = (props: Props) => {
           <ShortStory key={art.id} story={art} />
         )
       )}
-      {articles.length > 10 ? <LoadMore /> : null}
+      {(articles.length > 10 || latest.length > 10) ? <LoadMore /> : null}
     </div>
   );
 };

@@ -19,6 +19,7 @@ import { Switch, Route } from "react-router-dom";
 import { TopicContent } from "./components/pages/TopicContent";
 import MainContent from "./components/pages/MainContent";
 import { NoMatch } from "./components/pages/NoMatch";
+import NoInternetSnackbar from "./components/util/SnackBar";
 
 /**
  * top trending article
@@ -57,8 +58,18 @@ function App() {
   const [main, setMain] = useState<ArticleType>({});
   const [topics, setTopics] = useState([]);
 
+  const [shouldOpen, setShouldOpen] = useState(false);
+
   useEffect(() => {
+    
     fetchArticleData((l) => {
+          /// catch error
+      if (l instanceof Error) {
+        console.warn("Failed to fetch articles data.", l);
+        setShouldOpen(true);
+        return;
+      }
+
       ///
       let list = l.data.filtered.data;
       ///
@@ -80,8 +91,10 @@ function App() {
         }
       });
 
-      // console.log({list});
       
+
+      // console.log({list});
+
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));
       ///
@@ -89,6 +102,12 @@ function App() {
       if (main) setMain(main);
     });
     fetchLatestData((l) => {
+      /// catch error
+      if (l instanceof Error) {
+        console.warn("Failed to fetch latest data.");
+        setShouldOpen(true);
+        return;
+      }
       ///
       let list = l.data.filtered.data;
 
@@ -103,14 +122,26 @@ function App() {
         if (topicTwo) topics.push(topicTwo.toLowerCase());
       });
       // console.log({listOne: list});
-      
+
       //@ts-ignore
       setTopics(topics.filter(onlyUnique));
       setLatest(list);
     });
 
-    fetchTrendsData((l) => setTrends(l.data.filtered.data));
+    fetchTrendsData((l) => {
+
+      /// catch error
+      if (l instanceof Error) {
+        setShouldOpen(true);
+        console.warn("Failed to fetch trends data.");
+        
+        return;
+      }
+
+      setTrends(l.data.filtered.data);
+    });
   }, []);
+  //
 
   return (
     <>
@@ -143,27 +174,7 @@ function App() {
                       <NoMatch />
                     </Route>
                   </Switch>
-                  {/* / */}
-                  {/* <BigStory />
-                  <NewsCategory />
-                  <Story />
-                  <Story />
-                  <Story />
-                  <BigStory />
-                  <NewsCategory />
-                  <Story />
-                  <Story />
-                  <Story />
-                  <BigStory />
-                  <NewsCategory />
-                  <Story />
-                  <Story />
-                  <Story /> <BigStory />
-                  <NewsCategory />
-                  <Story />
-                  <Story />
-                  <Story /> */}
-                  {/*  */}
+                  <NoInternetSnackbar key={`${shouldOpen}`} shouldOpen={shouldOpen} />
                 </MobileWrapper>
               </TopicsContext.Provider>
             </LatestContext.Provider>

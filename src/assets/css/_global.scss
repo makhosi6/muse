@@ -1,3 +1,7 @@
+:root {
+    color-scheme: only light;
+  }
+
 html,
 body {
     padding: 0;
@@ -78,4 +82,10 @@ body {
     padding: $padding;
 }
 
+.MuiSnackbar-root {
+    bottom: 60px !important;
 
+    * {
+        color: whitesmoke !important;
+    }
+}
