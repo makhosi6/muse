@@ -20,7 +20,7 @@ type Props = {
 export const TopicContent = (props: Props) => {
   const params = props.match.params;
 
-  const articles = useContext(ArticlesContext).sort(sortingFn);;
+  const articles = useContext(ArticlesContext).sort(sortingFn);
 
   const topicRelated = [
     ...articles.filter((a) => a.tag === params.topic),

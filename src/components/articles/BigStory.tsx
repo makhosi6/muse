@@ -36,7 +36,7 @@ export const BigStory = (props: Props) => {
           <div className="muse-story-textarea">
             <div className="muse-overline-time">
             {story.category ? (
-                <a href={"/topics/" + story.category?.toLowerCase()}>
+                <a href={"/topic/" + story.category?.toLowerCase()}>
                   {story.category ? (
                     <span className="muse-overline">
                       {story.category?.toUpperCase()}

@@ -1,9 +1,13 @@
 import { string } from "prop-types";
 
 /**
- * API TOKEN
+ * API AUTH TOKEN
  */
 const TOKEN = import.meta.env.VITE_APP_TOKEN;
+/**
+ * API BASE URL
+ */
+const API = import.meta.env.VITE_APP_API;
 /**
  *
  * @param url image URL
@@ -93,7 +97,7 @@ export const fetchArticleData = (callback: ReceiveData) => {
   headers.append("Authorization", `Bearer ${TOKEN}`);
 
   fetch(
-    "https://museapi.byteestudio.com/api/graphql?query={%20filtered(first:120%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}",
+    `${API}graphql?query={%20filtered(first:120%20page:1%20type:%22card%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`,
     {
       method: "GET",
       headers: headers,
@@ -125,7 +129,7 @@ export const fetchLatestData = (callback: ReceiveData) => {
   headers.append("Authorization", `Bearer ${TOKEN}`);
 
   fetch(
-    "https://museapi.byteestudio.com/api/graphql?query={%20filtered(first:90%20page:1%20type:%22trend%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}",
+    `${API}graphql?query={%20filtered(first:90%20page:1%20type:%22trend%22)%20{%20paginatorInfo%20{%20lastPage%20hasMorePages%20currentPage%20total%20}%20data%20{%20id%20url%20headline%20lede%20thumbnail%20category%20catLink%20images%20src_name%20src_url%20src_logo%20isVid%20vidLen%20type%20tag%20tags%20author%20authors%20date%20}%20}%20}`,
     {
       method: "GET",
       headers: headers,
@@ -150,7 +154,7 @@ export const fetchTrendsData = (callback: ReceiveData) => {
   headers.append("Authorization", `Bearer ${TOKEN}`);
 
   fetch(
-    "https://museapi.byteestudio.com/api/graphql?query={%20filtered(first:15%20page:1%20type:%22hot-trends%22){%20paginatorInfo{%20count%20currentPage%20lastPage%20total%20}%20data{%20id%20label%20url%20headline%20}%20}%20}",
+    `${API}graphql?query={%20filtered(first:15%20page:1%20type:%22hot-trends%22){%20paginatorInfo{%20count%20currentPage%20lastPage%20total%20}%20data{%20id%20label%20url%20headline%20}%20}%20}`,
     {
       method: "GET",
       headers: headers,
