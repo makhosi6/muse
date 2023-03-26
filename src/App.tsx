@@ -13,6 +13,7 @@ import {
   fetchArticleData,
   fetchLatestData,
   fetchTrendsData,
+  hashCode,
   onlyUnique,
 } from "./components/util/helpers";
 import { Switch, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ import { TopicContent } from "./components/pages/TopicContent";
 import MainContent from "./components/pages/MainContent";
 import { NoMatch } from "./components/pages/NoMatch";
 import NoInternetSnackbar from "./components/util/SnackBar";
+import { Box, Grid, Typography } from "@material-ui/core";
 
 /**
  * top trending article
@@ -61,9 +63,8 @@ function App() {
   const [shouldOpen, setShouldOpen] = useState(false);
 
   useEffect(() => {
-    
     fetchArticleData((l) => {
-          /// catch error
+      /// catch error
       if (l instanceof Error) {
         console.warn("Failed to fetch articles data.", l);
         setShouldOpen(true);
@@ -90,8 +91,6 @@ function App() {
           main = article;
         }
       });
-
-      
 
       // console.log({list});
 
@@ -129,12 +128,11 @@ function App() {
     });
 
     fetchTrendsData((l) => {
-
       /// catch error
       if (l instanceof Error) {
         setShouldOpen(true);
         console.warn("Failed to fetch trends data.");
-        
+
         return;
       }
 
@@ -154,6 +152,9 @@ function App() {
                 {/* break-line */}
                 <TopAppBar />
                 <MobileWrapper>
+                  {/* <div style={{ maxWidth: "300px !important" }}> */}
+                   
+                  {/* </div> */}
                   <Chips />
                   {/*
                      // @ts-ignore */}
@@ -174,7 +175,10 @@ function App() {
                       <NoMatch />
                     </Route>
                   </Switch>
-                  <NoInternetSnackbar key={`${shouldOpen}`} shouldOpen={shouldOpen} />
+                  <NoInternetSnackbar
+                    key={`${shouldOpen}`}
+                    shouldOpen={shouldOpen}
+                  />
                 </MobileWrapper>
               </TopicsContext.Provider>
             </LatestContext.Provider>

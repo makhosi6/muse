@@ -36,11 +36,11 @@ export const TopicContent = (props: Props) => {
   return (
     <>
      {topicRelated.length !== 0 && <NewsCategory key={"news-category"} label={params.topic} />}
-      {topicRelated.map((art: ArticleType) =>
+      {topicRelated.map((art: ArticleType, index) =>
         art.thumbnail !== null ? (
-          <Story key={art.id} story={art} />
+          <Story key={index} story={art} />
         ) : (
-          <ShortStory key={art.id} story={art} />
+          <ShortStory key={index} story={art} />
         )
       )}
       {topicRelated.length > 10 ? <LoadMore key="loadmore" /> : null}

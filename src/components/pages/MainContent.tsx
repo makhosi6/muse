@@ -31,17 +31,17 @@ const MainContent = (props: Props) => {
        *
        */}
       {articles.length !== 0  && <NewsCategory key={"trends"} label={"Trends"} />}
-      {articles.map((art: ArticleType) =>
+      {articles.map((art: ArticleType, index) =>
         !art.category && main.author == "fooBaz" ? (
           (() => {
             // console.log({ VALID: art });
 
-            return <span key={articles.indexOf(art)} ></span>;
+            return <span key={index} ></span>;
           })()
         ) : art.thumbnail !== null ? (
-          <Story key={articles.indexOf(art)} story={art} />
+          <Story key={index} story={art} />
         ) : (
-          <ShortStory key={articles.indexOf(art)} story={art} />
+          <ShortStory key={index} story={art} />
         )
       )}
       {/*
@@ -49,16 +49,16 @@ const MainContent = (props: Props) => {
        *
        */}
       {latest.length !== 0  && <NewsCategory key={"latest"} label={"Latest"} />}
-      {latest.map((art: ArticleType) =>
+      {latest.map((art: ArticleType, index) =>
         !art.category && main.author == "fooBaz" ? (
           (() => {
 
-            return <span key={latest.indexOf(art)} ></span>;
+            return <span key={index} ></span>;
           })()
         ) : art.thumbnail !== null ? (
-          <Story key={latest.indexOf(art)} story={art} />
+          <Story key={index} story={art} />
         ) : (
-          <ShortStory key={latest.indexOf(art)} story={art} />
+          <ShortStory key={index} story={art} />
         )
       )}
       {(articles.length > 10 || latest.length > 10) ? <LoadMore /> : null}

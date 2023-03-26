@@ -2,8 +2,11 @@ import React, { Consumer, Context, KeyboardEvent, useContext } from "react";
 import { alpha as fade, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 import MyContext from "../../context";
+import { hashCode, wordLimiter } from "../util/helpers";
 import { ArticlesContext, TopicsContext } from "../../App";
+import { Box, Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: "relative",
-    borderRadius: theme.shape.borderRadius,
+    borderRadius: "0",
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25),
@@ -51,7 +54,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   inputRoot: {
-    color: "white",
+    color: "red",
+    borderRadius: "0",
   },
   inputInput: {
     color: "primary",
@@ -93,13 +97,15 @@ export default function SearchInput(props: Props) {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={articles.map((a: any) => a.headline)}
+          options={articles.map((art) => art.headline)}
           renderInput={(params) => (
             <TextField
               onSelect={(event: any) => {
+                console.log({ event });
+
                 if (event.target.value !== "") {
                   const obj = articles.filter(
-                    (opt: any) => opt.headline === event.target.value
+                    (opt) => opt.headline === event.target.value
                   );
                   if (obj[0] !== undefined) {
                     //@ts-ignore
@@ -115,6 +121,79 @@ export default function SearchInput(props: Props) {
               InputProps={{ ...params.InputProps, type: "search" }}
             />
           )}
+          /**
+           * props - article id
+           */
+          renderOption={(props, option) => {
+            ///article
+            const { thumbnail, headline, id } = articles.filter(
+              (art) => art.headline === props
+            )[0];
+            console.log({ props, option, thumbnail });
+            return (
+              <div
+                style={{ listStyle: "none" }}
+                key={id}
+                className="muse-search-list-item"
+              >
+                <Grid
+                  container
+                  alignItems="flex-start"
+                  justifyContent="space-between"
+                >
+                  {thumbnail !== "" && thumbnail !== null ? (
+                    <Grid item style={{ width: "45px", height: "45px" }}>
+                      <img
+                        src={thumbnail}
+                        width={45}
+                        height={45}
+                        alt="thumbnail"
+                      />
+                    </Grid>
+                  ) : null}
+                  <Grid
+                    item
+                    style={{
+                      width: "calc(100% - 50px)",
+                      wordWrap: "break-word",
+                    }}
+                  >
+                    {
+                      <div
+                        className="muse-search-list-item-title"
+                        style={{
+                          height: "50px !important",
+                          maxHeight: "50px !important",
+                          lineHeight: "normal !important",
+                          width: "100%",
+                          maxWidth: "100%",
+                        }}
+                      >
+                        <Typography
+                          variant="inherit"
+                          style={{
+                            fontSize: "14px",
+                            width: "100%",
+                            fontWeight: "650px",
+                          }}
+                        >
+                          {thumbnail !== "" && thumbnail !== null
+                            ? wordLimiter(headline)
+                            : headline}
+                        </Typography>
+                      </div>
+                    }
+                    {/* <Typography
+                      variant="caption"
+                      style={{ height: "30px", color: "lightgray" }}
+                    >
+                      {"secondary_text"}
+                    </Typography> */}
+                  </Grid>
+                </Grid>
+              </div>
+            );
+          }}
         />
       </div>
     </React.Fragment>

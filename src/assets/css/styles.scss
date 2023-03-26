@@ -434,7 +434,20 @@ Menu animation
     }
 }
 
+.MuiOutlinedInput-root {
+    border-radius: 0 !important;
+}
 
+.MuiAutocomplete-listbox li,
+.MuiAutocomplete-option {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.MuiAutocomplete-option {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
 [type="button"] {
     background-color: $bg_primary !important;
 }

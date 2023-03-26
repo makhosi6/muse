@@ -205,6 +205,16 @@ export function animateScroll(duration = 2000, someElement: HTMLElement) {
 }
 
 
+export function wordLimiter(str: string) {
+  let strAsArray = str.split(" ");
+
+  if (strAsArray.length < 14 ) {
+    return str;
+  }
+
+  return strAsArray.slice(0 ,14).join(' ') + "...";
+}
+
 export type ArticleType = {
   id: string;
   url: string;
