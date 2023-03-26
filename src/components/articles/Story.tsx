@@ -2,6 +2,7 @@ import React from "react";
 import { ArticleType } from "../util/helpers";
 import { SubText } from "../util/SubText";
 import Loader from "../util/Loader";
+import { BiasIndicator } from "./BiasIndicator";
 
 type Props = {
   story: ArticleType;
@@ -42,10 +43,20 @@ export const Story = (props: Props) => {
             </a>
           </div>
           <span title={story.headline} className="muse-title ellipsis">
-            <a href={story.url} target="_blank" rel="noopener noreferrer">
-              {story.headline}
-            </a>
-          </span>
+              <a href={story.url} target="_blank" rel="noopener noreferrer">
+                {story.headline}
+              </a>
+            </span>
+            <div className="muse-story-footer">
+              <BiasIndicator
+                data={[
+                  { label: "centre", key: "centre" },
+                  { label: "far left", key: "far-left" },
+                  
+                ]}
+              />
+              <time className="muse-time">09:17</time>
+            </div>
         </div>
         <div className="muse-story-img-area">
         <a href={story.url} target="_blank" rel="noopener noreferrer">
@@ -55,6 +66,7 @@ export const Story = (props: Props) => {
             srcSet={story.thumbnail}
           /></a>
         </div>
+        
       </div>
     </article>
   );

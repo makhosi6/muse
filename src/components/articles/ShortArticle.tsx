@@ -2,6 +2,7 @@ import React from "react";
 import { ArticleType } from "../util/helpers";
 import { SubText } from "../util/SubText";
 import Loader from "../util/Loader";
+import { BiasIndicator } from "./BiasIndicator";
 
 type Props = {
   story: ArticleType;
@@ -23,7 +24,11 @@ export const ShortStory = (props: Props) => {
                   {story.category ? (
                     <span className="muse-overline">
                       {story.category?.toUpperCase()}
-                      {story.tag && (story.category?.toLowerCase() !== story.category?.toLowerCase()) &&  <SubText slot={story.tag} />}
+                      {story.tag &&
+                        story.category?.toLowerCase() !==
+                          story.category?.toLowerCase() && (
+                          <SubText slot={story.tag} />
+                        )}
                     </span>
                   ) : null}
                 </a>
@@ -34,10 +39,25 @@ export const ShortStory = (props: Props) => {
                 <span className="muse-src-name">{story.src_name}</span>
               </a>
             </div>
-            <a href={story.url} title={story.headline} className="muse-title ellipsis">
-              {props.story.headline}
-            </a>
+            <span title={story.headline} className="muse-title ellipsis">
+              <a href={story.url} target="_blank" rel="noopener noreferrer">
+                {story.headline}
+              </a>
+            </span>
+            <div className="muse-story-footer">
+              <BiasIndicator
+                data={[
+                  { label: "centre", key: "centre" },
+                  { label: "far left", key: "far-left" },
+                  
+                ]}
+              />
+              <time className="muse-time">09:17</time>
+            </div>
+
+          
           </div>
+          
         </div>
       </div>
     </article>

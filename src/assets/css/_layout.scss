@@ -94,6 +94,30 @@ main,
                 object-fit: cover !important;
             }
         }
+
+        &-footer {
+            display: flex !important;
+            justify-content: space-between !important;
+            justify-items: start;
+
+            &>time {
+                height: max-content;
+            }
+
+            .muse-bias-tag {
+                margin-right: 10px;
+                &>* {
+                    height: 24px !important;
+                }
+
+                * {
+                    color: $secondary;
+                }
+            }
+            * {
+                border-radius: 0 !important;
+            }
+        }
     }
 
     &-chips {
@@ -224,7 +248,7 @@ main,
 
 
     }
-
+    
     &-news-heading {
         /* Heading Container */
         display: flex;
@@ -284,6 +308,7 @@ main,
             order: 0;
             align-self: stretch;
             flex-grow: 0;
+          
         }
     }
 
@@ -412,5 +437,8 @@ main,
             }
 
         }
+    }
+    &-bs-indicator {
+   overflow-x: scroll !important;
     }
 }

@@ -177,6 +177,34 @@ export const sortingFn = (a: ArticleType, b: ArticleType) => {
   return 0;
 };
 
+// horizontal auto scroll
+export function animateScroll(duration = 2000, someElement: HTMLElement) {
+  var start = someElement.scrollLeft;
+  var end = someElement.scrollWidth * 2;
+  var change = end - start;
+  var increment = 20;
+  function easeInOut(currentTime: number, start: number, change: number, duration:number) {
+    currentTime /= duration / 2;
+    if (currentTime < 1) {
+      return change / 2 * currentTime * currentTime + start;
+    }
+    currentTime -= 1;
+    return -change / 2 * (currentTime * (currentTime - 2) - 1) + start;
+  }
+  function animate(elapsedTime: number) {
+    elapsedTime += increment;
+    var position = easeInOut(elapsedTime, start, change, duration);
+    someElement.scrollLeft = position;
+    if (elapsedTime < duration) {
+      setTimeout(function() {
+        animate(elapsedTime);
+      }, increment)
+    }
+  }
+  animate(0);
+}
+
+
 export type ArticleType = {
   id: string;
   url: string;

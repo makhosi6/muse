@@ -47,7 +47,9 @@ body * {
   align-items: center;
   padding: 5.9765px 7.96867px;
   gap: 5.98px;
-  cursor: pointer;
+}
+.muse-more-btn * {
+  cursor: pointer !important;
 }
 .muse-more-btn span {
   /* Title */
@@ -254,6 +256,7 @@ body * {
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  margin-bottom: 10px !important;
 }
 .muse-title > * {
   max-width: 100% !important;
@@ -340,6 +343,27 @@ main *,
 .muse-story-img-area img {
   -o-object-fit: cover !important;
      object-fit: cover !important;
+}
+.muse-story-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  justify-items: start;
+}
+.muse-story-footer > time {
+  height: -moz-max-content;
+  height: max-content;
+}
+.muse-story-footer .muse-bias-tag {
+  margin-right: 10px;
+}
+.muse-story-footer .muse-bias-tag > * {
+  height: 24px !important;
+}
+.muse-story-footer .muse-bias-tag * {
+  color: rgba(0, 0, 0, 0.6);
+}
+.muse-story-footer * {
+  border-radius: 0 !important;
 }
 .muse-chips {
   /* Auto layout */
@@ -582,6 +606,9 @@ main *,
   width: 100%;
   max-height: 100;
   height: 100%;
+}
+.muse-bs-indicator {
+  overflow-x: scroll !important;
 }
 
 .nav-menu {

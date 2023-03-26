@@ -1,6 +1,7 @@
 import React from "react";
 import { SubText } from "../util/SubText";
 import Loader from "../util/Loader";
+import { BiasIndicator } from "./BiasIndicator";
 
 type Props = {
   story: {
@@ -18,7 +19,7 @@ type Props = {
 export const BigStory = (props: Props) => {
   const { story } = props;
 
-  if (!story.hasOwnProperty("category")) return <Loader />
+  if (!story.hasOwnProperty("category")) return <Loader />;
 
   return (
     <article className="muse-big-story">
@@ -35,7 +36,7 @@ export const BigStory = (props: Props) => {
         <div className="muse-story-container">
           <div className="muse-story-textarea">
             <div className="muse-overline-time">
-            {story.category ? (
+              {story.category ? (
                 <a href={"/topic/" + story.category?.toLowerCase()}>
                   {story.category ? (
                     <span className="muse-overline">
@@ -56,6 +57,16 @@ export const BigStory = (props: Props) => {
                 {story.headline}
               </a>
             </span>
+            <div className="muse-story-footer">
+              <BiasIndicator
+                data={[
+                  { label: "centre", key: "centre" },
+                  { label: "far left", key: "far-left" },
+                  
+                ]}
+              />
+              <time className="muse-time">09:17</time>
+            </div>
           </div>
         </div>
       </div>

@@ -49,7 +49,10 @@ body {
         align-items: center;
         padding: 5.9765px 7.96867px;
         gap: 5.98px;
-        cursor: pointer;
+        * {
+
+            cursor:pointer !important;
+        }
 
         span {
             /* Title */

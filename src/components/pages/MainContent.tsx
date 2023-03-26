@@ -36,12 +36,12 @@ const MainContent = (props: Props) => {
           (() => {
             // console.log({ VALID: art });
 
-            return <span></span>;
+            return <span key={articles.indexOf(art)} ></span>;
           })()
         ) : art.thumbnail !== null ? (
-          <Story key={art.id} story={art} />
+          <Story key={articles.indexOf(art)} story={art} />
         ) : (
-          <ShortStory key={art.id} story={art} />
+          <ShortStory key={articles.indexOf(art)} story={art} />
         )
       )}
       {/*
@@ -52,14 +52,13 @@ const MainContent = (props: Props) => {
       {latest.map((art: ArticleType) =>
         !art.category && main.author == "fooBaz" ? (
           (() => {
-            // console.log({ VALID: art });
 
-            return <span></span>;
+            return <span key={latest.indexOf(art)} ></span>;
           })()
         ) : art.thumbnail !== null ? (
-          <Story key={art.id} story={art} />
+          <Story key={latest.indexOf(art)} story={art} />
         ) : (
-          <ShortStory key={art.id} story={art} />
+          <ShortStory key={latest.indexOf(art)} story={art} />
         )
       )}
       {(articles.length > 10 || latest.length > 10) ? <LoadMore /> : null}
