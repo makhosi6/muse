@@ -7,8 +7,7 @@ import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // border: "1px solid",
-    // margin: "0 auto",
+
     maxWidth: 700,
     display: "flex",
     justifyContent: "left",
@@ -19,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     margin: theme.spacing(0.0),
-    // cursor: "pointer",
-    // color: 'red'
+    cursor: "pointer",
+ 
   },
 }));
 
@@ -28,6 +27,8 @@ type Props = {
   data: Array<{
     key: string;
     label: string;
+    color: string;
+    textColor?: string ;
   }>;
 };
 
@@ -42,30 +43,20 @@ export const BiasIndicator = (props: Props) => {
       component="section"
       className={`muse-bs-indicator ` + classes.root}
     >
-      {props.data.map((data) => {
+         
+      {props.data.map((data, index) => {
         let icon;
-        let color;
-        /**
-         * a random number within range of [accentColors]
-         */
-        let index = Math.floor(Math.random() * accentColors.length);
-
- 
-        // if (index === 3 || index == 10) {
-        //   icon = index > 5 ? <AccessAlarmIcon/> : <WhatshotIcon />;
-        //   color = "secondary";
-        // }
+     
         return (
           <span className="muse-bias-tag" key={data.key}>
+        
             <Chip
               style={{
-                backgroundColor: accentColors[index]
+                backgroundColor: data.color
               }}
               variant="outlined"
               icon={icon}
-              //@ts-ignore
-              color={color}
-              label={data.label + " "  + index}
+              label={data.textColor ? <p className={data.textColor}>{data.label}</p>: data.label}
               className={classes.chip}
             ></Chip>
           </span>

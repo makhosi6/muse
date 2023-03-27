@@ -35,6 +35,23 @@ main,
         border-bottom: 0.498042px dashed rgba(0, 0, 0, 0.38);
         box-sizing: border-box;
 
+        &-short-container {
+
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0px 0px 10px;
+            gap: 24px;
+
+            /* Inside auto layout */
+
+            flex: none;
+            order: 0;
+            align-self: stretch;
+            flex-grow: 0;
+        }
 
         &-container {
 
@@ -107,7 +124,7 @@ main,
             }
 
             .muse-bias-tag {
-                margin-right: 10px;
+                margin-right: 3px;
 
                 &>* {
                     height: 24px !important;
@@ -115,6 +132,18 @@ main,
 
                 * {
                     color: $secondary;
+                    font-family: 'Libre Franklin' !important;
+                    font-style: normal;
+                    font-size: 11px;
+                }
+
+                .white {
+                    color: white !important;
+                }
+
+                .MuiChip-label {
+                    padding-left: 8px !important;
+                    padding-right: 8px !important;
                 }
             }
 

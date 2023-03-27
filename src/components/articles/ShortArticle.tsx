@@ -16,7 +16,7 @@ export const ShortStory = (props: Props) => {
   ) : (
     <article className="muse-big-story">
       <div className="muse-story">
-        <div className="muse-story-container">
+        <div className="muse-story-short-container">
           <div className="muse-story-textarea">
             <div className="muse-overline-time">
               {story.category ? (
@@ -47,8 +47,9 @@ export const ShortStory = (props: Props) => {
             <div className="muse-story-footer">
               <BiasIndicator
                 data={[
-                  { label: "centre", key: "centre" },
-                  { label: "far left", key: "far-left" },
+                  { label: "Left 50%", key: "left", color: "#204986", textColor: "white"  },
+                  { label: "Centre 50%", key: "centre", color: "#ffffff", },
+                  { label: "Right 10%", key: "right", color: "#802727", textColor: "white" },
                   
                 ]}
               />

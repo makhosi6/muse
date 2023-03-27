@@ -60,9 +60,9 @@ export const BigStory = (props: Props) => {
             <div className="muse-story-footer">
               <BiasIndicator
                 data={[
-                  { label: "centre", key: "centre" },
-                  { label: "far left", key: "far-left" },
-                  
+                  { label: "Left 50%", key: "left", color: "#204986", textColor: "white"  },
+                  { label: "Centre 50%", key: "centre", color: "#ffffff", },
+                  { label: "Right 10%", key: "right", color: "#802727", textColor: "white" },
                 ]}
               />
               <time className="muse-time">09:17</time>

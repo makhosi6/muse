@@ -1,6 +1,6 @@
 :root {
     color-scheme: only light;
-  }
+}
 
 html,
 body {
@@ -17,6 +17,11 @@ body {
 
 * {
     outline-color: $primary !important;
+}
+
+small {
+    font-family: 'Libre Franklin' !important;
+    font-size: 11px;
 }
 
 .unshow {
@@ -49,9 +54,10 @@ body {
         align-items: center;
         padding: 5.9765px 7.96867px;
         gap: 5.98px;
+
         * {
 
-            cursor:pointer !important;
+            cursor: pointer !important;
         }
 
         span {
