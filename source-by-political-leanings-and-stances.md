@@ -86,7 +86,7 @@ _It's important to note that media outlets often have complex and varied editori
 
 
 
-* **_*Note that_**
+* **_Note that_**
     - this list is not exhaustive and there may be other national news sources in South Africa that are not included here.
     - these are generalizations, and the editorial stances of these news sources may be subject to change over time or vary on different issues.
 

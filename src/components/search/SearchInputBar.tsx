@@ -162,9 +162,12 @@ export default function SearchInput(props: Props) {
                       <div
                         className="muse-search-list-item-title"
                         style={{
-                          height: "50px !important",
-                          maxHeight: "50px !important",
-                          lineHeight: "normal !important",
+                          border: "1px solid red",
+                          overflowY: 'hidden',
+                          overscrollBehavior:"none",
+                          height: "50px",
+                          maxHeight: "50px",
+                          // lineHeight: "normal",
                           width: "100%",
                           maxWidth: "100%",
                         }}
@@ -174,7 +177,7 @@ export default function SearchInput(props: Props) {
                           style={{
                             fontSize: "14px",
                             width: "100%",
-                            fontWeight: "650px",
+                            fontWeight: 'bolder',
                           }}
                         >
                           {thumbnail !== "" && thumbnail !== null
@@ -183,12 +186,12 @@ export default function SearchInput(props: Props) {
                         </Typography>
                       </div>
                     }
-                    {/* <Typography
+                    <Typography
                       variant="caption"
                       style={{ height: "30px", color: "lightgray" }}
                     >
-                      {"secondary_text"}
-                    </Typography> */}
+                      {"eNCA"}
+                    </Typography>
                   </Grid>
                 </Grid>
               </div>
